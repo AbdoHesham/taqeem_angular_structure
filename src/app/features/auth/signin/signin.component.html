@@ -27,30 +27,23 @@
           Please provide a valid format
         </mat-error>
       </mat-form-field>
-  
-      <button
-        mat-raised-button
-        color="primary"
-        [disabled]="!form.valid"
-        (click)="submit()"
+      <app-shared-button
+        [label]="'Login'"
+        (buttonClick)="submit()"
+        [isDisabled]="!form.valid"
       >
-        Login
-      </button>
-    
-    
+      </app-shared-button>
     </form>
 
     <mat-divider></mat-divider>
 
-
     <div>
-      <button
-      mat-raised-button
-      color="primary"
-      (click)="signup()"
+      <app-shared-button
+      [label]="'SignUp'"
+      (buttonClick)="signup()"
     >
-      SignUp
-    </button>
+    </app-shared-button>
+
     </div>
   </mat-card-content>
 </mat-card>

@@ -34,12 +34,14 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatDividerModule} from '@angular/material/divider';
+import { SharedButtonComponent } from './components/shared-button/shared-button.component';
 
 @NgModule({
   declarations: [
     SpinnerComponent,
     CustomDatePipe,
     GenericGridComponent,
+    SharedButtonComponent
   ],
   imports: [
     CommonModule,
@@ -98,7 +100,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatTabsModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
-    MatDividerModule
+    MatDividerModule,
+    SharedButtonComponent
   ],
   providers: [
     {

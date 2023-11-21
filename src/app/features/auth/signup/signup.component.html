@@ -1,57 +1,47 @@
-
 <mat-card>
-    <mat-card-content>
-      <form [formGroup]="form">
-        <h2>SignUp</h2>
-  
-        <mat-form-field>
-          <input matInput placeholder="Email" formControlName="email" />
-          <mat-error *ngIf="form.get('username')?.hasError('required')">
-            Please provide a valid email address
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field style="position: relative">
-          <input
-            matInput
-            [type]="show ? 'text' : 'password'"
-            placeholder="Password"
-            formControlName="password"
-          />
-  
-          <mat-icon matSuffix (click)="show = !show">
-            {{ !show ? "visibility" : "visibility_off" }}
-          </mat-icon>
-          <mat-error *ngIf="form.get('password')?.hasError('required')">
-            Please provide a valid password
-          </mat-error>
-          <mat-error *ngIf="form.get('password')?.hasError('pattern')">
-            Please provide a valid format
-          </mat-error>
-        </mat-form-field>
-    
-        <button
-          mat-raised-button
-          color="primary"
-          [disabled]="!form.valid"
-          (click)="submit()"
-     
-          >
-          SignUp
-        </button>
-      
-      
-      </form>
-      <mat-divider></mat-divider>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <h2>SignUp</h2>
 
-      <div>
-        <button
-        mat-raised-button
-        color="primary"
-        (click)="login()"
-        >
-        Login
-      </button>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email" />
+        <mat-error *ngIf="form.get('username')?.hasError('required')">
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field style="position: relative">
+        <input
+          matInput
+          [type]="show ? 'text' : 'password'"
+          placeholder="Password"
+          formControlName="password"
+        />
+
+        <mat-icon matSuffix (click)="show = !show">
+          {{ !show ? "visibility" : "visibility_off" }}
+        </mat-icon>
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          Please provide a valid password
+        </mat-error>
+        <mat-error *ngIf="form.get('password')?.hasError('pattern')">
+          Please provide a valid format
+        </mat-error>
+      </mat-form-field>
+      <app-shared-button
+        [label]="'SignUp'"
+        (buttonClick)="submit()"
+        [isDisabled]="!form.valid"
+      >
+      </app-shared-button>
+    </form>
+    <mat-divider></mat-divider>
+
+    <div>
+      <app-shared-button
+        [label]="'Login'"
+        (buttonClick)="login()"
+      >
+      </app-shared-button>
+    </div>
+  </mat-card-content>
+</mat-card>
