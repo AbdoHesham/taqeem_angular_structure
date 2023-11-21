@@ -11,8 +11,6 @@ import {
   HttpClient,
   HttpClientModule,
 } from '@angular/common/http';
-import { ConnectionLostComponent } from '../layout/connection-lost/connection-lost.component';
-
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CustomDatePipe } from './pipes/custom-date.pipe';
 import { InjectionToken } from '@angular/core';
@@ -35,12 +33,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatDividerModule} from '@angular/material/divider';
 
-// import { CreateriaComponent } from './components/createria/createria.component';
-export const COMPONENT_SOURCE = new InjectionToken<string>('ComponentSource');
 @NgModule({
   declarations: [
-    ConnectionLostComponent,
     SpinnerComponent,
     CustomDatePipe,
     GenericGridComponent,
@@ -75,14 +71,13 @@ export const COMPONENT_SOURCE = new InjectionToken<string>('ComponentSource');
     MatTabsModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
+    MatDividerModule
   ],
   exports: [
-    ConnectionLostComponent,
     FormsModule,
     ReactiveFormsModule,
     JsonPipe,
     TranslateModule,
-    ConnectionLostComponent,
     SpinnerComponent,
     CustomDatePipe,
     FlexLayoutModule,
@@ -103,6 +98,7 @@ export const COMPONENT_SOURCE = new InjectionToken<string>('ComponentSource');
     MatTabsModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
+    MatDividerModule
   ],
   providers: [
     {

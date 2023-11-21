@@ -9,22 +9,17 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SigninComponent } from './signin/signin.component';
 import { RouterModule } from '@angular/router';
-import { AuthComponent } from './auth.component';
 import { SharedModule } from '../../shared/shared.module';
 import { SignupComponent } from './signup/signup.component';
 @NgModule({
-  declarations: [
-    SigninComponent ,
-    AuthComponent,
-   
-  ],
+  declarations: [SigninComponent, SignupComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
     SharedModule,
-  ]
+    AuthRoutingModule
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}
