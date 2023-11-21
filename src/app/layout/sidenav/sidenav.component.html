@@ -1,0 +1,92 @@
+<div class="sidenav" [dir]="ChangeDirService.dir() === 'ar' ? 'rtl' : 'ltr'">
+  <div class="logo-container" [ngClass]="collapsed ? 'invisible' : 'visible'">
+    <button class="logo" (click)="toggleCollapse()">
+      <img src="../../../assets/images/avatar/user1.png" width="40px" alt="" />
+    </button>
+  </div>
+
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item" *ngFor="let data of navData">
+      <span *abpPermission="data.Permission">
+        <a
+          class="sidenav-nav-link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [pTooltip]="'::' + data.label | abpLocalization"
+          [ngClass]="data.selected ? 'active' : ''"
+          (click)="getChildren(data)"
+        >
+          <i *ngIf="data.icon" class="sidenav-link-icon" [class]="data.icon"></i>
+          <img *ngIf="data.Iconsrc" class="sidenav-link-icon" [src]="data.Iconsrc" />
+        </a>
+      </span>
+    </li>
+  </ul>
+</div>
+<div
+  class="child-sidenav"
+  [dir]="ChangeDirService.dir() === 'ar' ? 'rtl' : 'ltr'"
+  [ngClass]="collapsed ? '' : 'collapsed'"
+>
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()">
+      <img src="../../../assets/images/avatar/user1.png" width="40" alt="" />
+    </button>
+    <div class="logo-text" *ngIf="collapsed">Hello 👋</div>
+    <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+      <i class="fas fa-times close-icon"> </i>
+    </button>
+  </div>
+  <div class="children" [ngClass]="!collapsed ? 'd-none' : 'd-block'">
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item" *ngFor="let item of childern">
+        <span *abpPermission="item.Permission">
+          <a
+            *ngIf="item.routerLink !== '.'"
+            class="sidenav-nav-link"
+            routerLinkActive="active"
+            [routerLink]="[item.routerLink]"
+            pathMatch="full"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="getActiveParent(item)"
+            >
+            <!-- [href]="item.link"
+            target="_blank" -->
+            <i *ngIf="item.icon" class="sidenav-link-icon" [class]="item.icon"></i>
+            <img *ngIf="item.Iconsrc" class="sidenav-link-icon" [src]="item.Iconsrc" />
+            <span class="sidenav-link-text" *ngIf="collapsed">{{
+              '::' + item.label | abpLocalization
+            }}</span>
+          </a>
+          <a
+          *ngIf="item.routerLink === '.'"
+          class="sidenav-nav-link"
+          routerLinkActive="active"
+          pathMatch="full"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="getActiveParent(item)"
+          [href]="item.link"
+          target="_blank"
+          >
+          <i *ngIf="item.icon" class="sidenav-link-icon" [class]="item.icon"></i>
+          <img *ngIf="item.Iconsrc" class="sidenav-link-icon" [src]="item.Iconsrc" />
+          <span class="sidenav-link-text" *ngIf="collapsed">{{
+            '::' + item.label | abpLocalization
+          }}</span>
+        </a>
+        </span>
+      </li>
+    </ul>
+
+    <div class="language-div">
+      <span class="version-span">{{ 'v.1.1' }}</span>
+      <div
+        *ngIf="(dropdownLanguages$ | async)?.length > 0"
+        class="dropdown"
+        ngbDropdown
+        #languageDropdown="ngbDropdown"
+        display="static"
+      ></div>
+    </div>
+  </div>
+</div>

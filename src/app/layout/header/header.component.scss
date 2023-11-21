@@ -1,0 +1,33 @@
+// .language-div {
+//     position: fixed;
+//     bottom: 10px;
+//     display: flex;
+//     justify-content: space-between;
+//     width: 100%;
+    
+//     align-items: center;
+//     .version-span
+//     {
+//       padding: 0 10px;
+//     }
+//     .dropdown .nav-link.lang-dropdown {
+//       color: #737373;
+//     }
+//   }
+
+.d-flex-justify-space-between{
+    // display: flex; justify-content: space-between
+    display: flex;
+    justify-content: space-between;
+    direction: initial;
+}
+
+[dir="ltr"] .flags{
+    left: -62px;
+
+}
+
+[dir="rtl"] .flags{
+    left: 0;
+
+}

@@ -1,0 +1,123 @@
+<div class="card" [dir]="ChangeDirService.dir() === 'ar' ? 'rtl' : 'ltr'">
+  <ul class="navbar-nav flex-row justify-content-end gap-5">
+    <li class="nav-item d-flex align-items-center">
+      <ng-template #loginBtn>
+        <a role="button" class="nav-link pointer" (click)="navigateToLogin()">{{
+          '::' + 'Login' | abpLocalization
+        }}</a>
+      </ng-template>
+      <div
+        *ngIf="(currentUser$ | async)?.isAuthenticated; else loginBtn"
+        ngbDropdown
+        class="dropdown"
+        #currentUserDropdown="ngbDropdown"
+        display="static"
+      >
+        <a
+          ngbDropdownToggle
+          class="nav-link"
+          href="javascript:void(0)"
+          role="button"
+          id="dropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <small *ngIf="(selectedTenant$ | async)?.name as tenantName"
+            ><i>{{ tenantName }}</i
+            >\</small
+          >
+          <strong>{{ (currentUser$ | async)?.userName }}</strong>
+        </a>
+        <!-- [class.d-block]="smallScreen && currentUserDropdown.isOpen()" -->
+
+        <div class="dropdown-menu border-0 shadow-sm" aria-labelledby="dropdownMenuLink">
+          <a
+            class="dropdown-item pointer d-flex-justify-space-between"
+            (click)="navigateToManageProfile()"
+            ><i class="fa fa-cog mr-1"></i>
+          <span>
+            {{ 'AbpAccount::MyAccount' | abpLocalization }}
+          </span>
+            </a
+          >
+          <a
+            class="dropdown-item d-flex-justify-space-between"
+            href="javascript:void(0)"
+            (click)="logout()"
+            ><i class="fa fa-power-off mr-1"></i>
+            <span>
+              {{ 'AbpUi::Logout' | abpLocalization }}
+            </span>
+            </a
+          >
+        </div>
+      </div>
+    </li>
+    <li>
+      <!-- <p-menubar >
+
+    <form [formGroup]="formGroup">
+      <p-selectButton
+        [options]="stateOptions"
+        formControlName="currentLang"
+        optionLabel="flag"
+        optionValue="value"
+        (onChange)="changeCurrentLang($event.value)"
+      >
+        <ng-template let-item pTemplate>
+          <img [src]="item.flag" style="width: 18px" />
+        </ng-template>
+      </p-selectButton>
+    </form>
+  </p-menubar> -->
+      <div class="language-div mx-3">
+        <div
+          *ngIf="(dropdownLanguages$ | async)?.length > 0"
+          class="dropdown"
+          ngbDropdown
+          #languageDropdown="ngbDropdown"
+          display="static"
+        >
+          <a
+            ngbDropdownToggle
+            class="nav-link lang-dropdown"
+            role="button"
+            id="dropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="fa fa-globe"></i> {{ defaultLanguage$ | async }}
+          </a>
+          <div
+            class="dropdown-menu border-0 shadow-sm flags"
+            aria-labelledby="dropdownMenuLink"
+            [class.d-block]="smallScreen && languageDropdown.isOpen()"
+            >
+            <!-- [ngClass]="{
+              'dropdown-menu-left': document.documentElement.dir === 'rtl',
+              'dropdown-menu-light': document.documentElement.dir === 'ltr'
+            }" -->
+            <a  class="dropdown-item d-flex-justify-space-between" (click)="changeCurrentLang('en')"
+              >English
+              <img
+              src="../../../assets/images/flags/united.svg"
+              style="height: 17px"
+              alt=""
+              srcset=""
+              /></a>
+              <a  class="dropdown-item d-flex-justify-space-between" (click)="changeCurrentLang('ar')"
+              >العربية
+              <img
+              src="../../../assets/images/flags/saudi-arabia-flag-icon.svg"
+                style="height: 17px"
+                alt=""
+                srcset=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,125 @@
+<p-blockUI #blockUI [blocked]="blockedDocument">
+  <div class="spinner">
+    <i class="pi pi-spin pi-spinner"></i>
+  </div>
+</p-blockUI>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  
+  <a href="index3.html" class="brand-link">
+
+    <span class="brand-text font-weight-light">DotCare Sys Admin</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <li class="nav-item menu-open">
+          <a href="#" class="nav-link d-flex align-items-center">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              <i class="right fas fa-angle-left"></i>
+              Providers
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="" class="nav-link d-flex align-items-center">
+                <i class="far fa-circle nav-icon"></i>
+                Provider Management
+              </a>
+            </li>
+            <li class="nav-item">
+
+              <a (click)="show()" class="nav-link d-flex align-items-center">
+                <i class="far fa-circle nav-icon"></i>
+                Add New Provider
+              </a>
+            </li>
+            <li class="nav-item">
+
+              <a (click)="showBranch()" class="nav-link d-flex align-items-center">
+                <i class="far fa-circle nav-icon"></i>
+                Add New Branch
+              </a>
+            </li>
+
+            <li class="nav-item">
+
+              <a  (click)="Providertabs()"  class="nav-link d-flex align-items-center">
+                <i class="far fa-circle nav-icon"></i>
+                Provider tabs
+              </a>
+            </li>
+        
+            <li class="nav-item">
+              <a routerLink="/Provider" class="nav-link d-flex align-items-center">
+                <i class="far fa-circle nav-icon"></i>
+                Provider List
+              </a>
+            </li>
+          </ul>
+        </li>
+
+       
+        <li class="nav-item menu-open" *abpPermission="'AbpIdentity.Roles || AbpIdentity.Users'">
+          <a href="#" class="nav-link d-flex align-items-center">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              {{ 'AbpIdentity::Menu:IdentityManagement' | abpLocalization }}
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" *abpPermission="'AbpIdentity.Roles'">
+              <a routerLink="/identity/roles" class="nav-link d-flex align-items-center">
+                <i class="fas fa-user-shield mx-1"></i> {{ 'AbpIdentity::Roles' | abpLocalization }}
+              </a>
+            </li>
+            <li class="nav-item" *abpPermission="'AbpIdentity.Users'">
+              <a routerLink="/identity/users" class="nav-link d-flex align-items-center">
+                <i class="fas fa-user-cog mx-1"></i>
+                {{ 'AbpIdentity::Users' | abpLocalization }}
+              </a>
+            </li>
+            <!-- <li class="nav-item" >
+                <a href="./index3.html" class="nav-link d-flex align-items-center">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dashboard v3</p>
+                </a>
+              </li> -->
+          </ul>
+        </li>
+        <li class="nav-item menu-open" *abpPermission="'AbpTenantManagement.Tenants'">
+          <a href="#" class="nav-link d-flex align-items-center">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              {{ 'AbpTenantManagement::Menu:TenantManagement' | abpLocalization }}
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="/tenant-management/tenants" class="nav-link d-flex align-items-center">
+                <i class="far fa-circle nav-icon"></i>
+                {{ 'AbpTenantManagement::Tenants' | abpLocalization }}
+              </a>
+            </li>
+          </ul>
+        </li>
+   
+    
+      
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
