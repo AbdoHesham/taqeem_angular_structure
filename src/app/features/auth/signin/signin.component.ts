@@ -24,8 +24,7 @@ export class SigninComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router
-  ) // private spinner: NgxSpinnerService,
-  // private permissionsService:NgxPermissionsService
+  ) 
   {}
 
   ngOnInit() {
@@ -42,6 +41,10 @@ export class SigninComponent {
         Validators.pattern(InputValidation.complexPassword),
       ]),
     });
+  }
+
+  signup(){
+    this.router.navigateByUrl('/signup')
   }
 
   submit() {

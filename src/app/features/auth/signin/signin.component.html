@@ -27,9 +27,7 @@
           Please provide a valid format
         </mat-error>
       </mat-form-field>
-      <!-- <div> -->
-        <!-- <mat-hint> Create new account </mat-hint> -->
-      <!-- </div> -->
+  
       <button
         mat-raised-button
         color="primary"
@@ -38,6 +36,18 @@
       >
         Login
       </button>
+    
+    
     </form>
+
+    <div>
+      <button
+      mat-raised-button
+      color="primary"
+      (click)="signup()"
+    >
+      SignUp
+    </button>
+    </div>
   </mat-card-content>
 </mat-card>
