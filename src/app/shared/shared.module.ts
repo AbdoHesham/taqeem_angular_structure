@@ -47,7 +47,6 @@ export const COMPONENT_SOURCE = new InjectionToken<string>('ComponentSource');
   ],
   imports: [
     CommonModule,
-
     FormsModule,
     ReactiveFormsModule,
     JsonPipe,
