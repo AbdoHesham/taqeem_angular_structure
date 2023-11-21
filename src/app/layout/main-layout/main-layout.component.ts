@@ -1,12 +1,13 @@
-import { AuthService, ConfigStateService, CurrentUserDto } from '@abp/ng.core';
+// import { AuthService, ConfigStateService, CurrentUserDto } from '@abp/ng.core';
 import { Component, Input, Inject, ViewChild } from '@angular/core';
 import { Observable, filter } from 'rxjs';
 import { sideNavToggle } from '../sidenav/sidenav.component';
-import { ChangeDirService } from 'src/app/shared/services/change-dir.service';
-import { MenuItem } from 'primeng/api';
+// import { ChangeDirService } from 'src/app/shared/services/change-dir.service';
+// import { MenuItem } from 'primeng/api';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Breadcrumb } from 'primeng/breadcrumb';
-import { BreadcrumbService } from 'src/app/shared/services/breadcrumb.service';
+import { ChangeDirService } from '../../shared/services/change-dir.service';
+// import { Breadcrumb } from 'primeng/breadcrumb';
+// import { BreadcrumbService } from 'src/app/shared/services/breadcrumb.service';
 
 @Component({
   selector: 'app-main-layout',
@@ -14,30 +15,27 @@ import { BreadcrumbService } from 'src/app/shared/services/breadcrumb.service';
   styleUrls: ['./main-layout.component.scss'],
 })
 export class MainLayoutComponent {
-  currentUser$: Observable<CurrentUserDto> = this.configState.getOne$('currentUser');
-  items: MenuItem[] | undefined;
+  // currentUser$: Observable<CurrentUserDto> = this.configState.getOne$('currentUser');
+  // items: MenuItem[] | undefined;
 
-  home: MenuItem | undefined;
-  menuItems: MenuItem[] | undefined;
-  crumbs$: Observable<MenuItem[]>;
+  // home: MenuItem | undefined;
+  // menuItems: MenuItem[] | undefined;
+  // crumbs$: Observable<MenuItem[]>;
     
   constructor(
-    private configState: ConfigStateService,
+    // private configState: ConfigStateService,
     public ChangeDirService: ChangeDirService,
-    private authService: AuthService,
-    private breadcrumb: BreadcrumbService
+    // private authService: AuthService,
+    // private breadcrumb: BreadcrumbService
   ) {}
 
   ngOnInit(){
-    // this.items = [{ label: 'Computer' }, { label: 'Notebook' }, { label: 'Accessories' }, { label: 'Backpacks' }, { label: 'Item' }];
 
-    this.home = { icon: 'pi pi-home',  command: event => {
-     this.breadcrumb.setCrumbs(null)
-    }, routerLink: '/' };
-    // this.router.events
-    // .pipe(filter(event => event instanceof NavigationEnd))
-    // .subscribe(() => this.menuItems = this.createBreadcrumbs(this.activatedRoute.root));
-    this.crumbs$ = this.breadcrumb.crumbs$;
+    // this.home = { icon: 'pi pi-home',  command: event => {
+    //  this.breadcrumb.setCrumbs(null)
+    // }, routerLink: '/' };
+  
+    // this.crumbs$ = this.breadcrumb.crumbs$;
     
   }
 
@@ -62,11 +60,11 @@ export class MainLayoutComponent {
 
   
   login() {
-    this.authService.navigateToLogin();
+    // this.authService.navigateToLogin();
   }
 //  this.authService.logout();
 
   get hasLoggedIn(): boolean {
-    return this.authService.isAuthenticated;
+     return true;
   }
 }

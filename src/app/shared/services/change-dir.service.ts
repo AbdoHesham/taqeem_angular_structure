@@ -1,4 +1,3 @@
-import { SessionStateService } from '@abp/ng.core';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,10 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class ChangeDirService {
 
-  constructor(    private sessionState: SessionStateService,
+  constructor(   
     ) { }
   onChangeLang(cultureName: string) {
-    this.sessionState.setLanguage(cultureName);
+    // this.sessionState.setLanguage(cultureName);
   }
   dir() {
     let dir = localStorage.getItem('currentLang');

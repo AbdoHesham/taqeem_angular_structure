@@ -3,7 +3,7 @@ export enum MenuNavFunction {
 }
 export default class CustomMenuItem {
   routerLink?: string;
-  label: string;
+  label?: string;
   Iconsrc?: string;
   icon?: string;
   selected?: boolean;

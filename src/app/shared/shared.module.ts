@@ -18,6 +18,23 @@ import { CustomDatePipe } from './pipes/custom-date.pipe';
 import { InjectionToken } from '@angular/core';
 import { GenericGridComponent } from './components/generic-grid/generic-grid.component';
 import { HeaderInterceptor } from '../core/Interceptor/header.interceptor';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // import { CreateriaComponent } from './components/createria/createria.component';
 export const COMPONENT_SOURCE = new InjectionToken<string>('ComponentSource');
@@ -27,7 +44,6 @@ export const COMPONENT_SOURCE = new InjectionToken<string>('ComponentSource');
     SpinnerComponent,
     CustomDatePipe,
     GenericGridComponent,
-    // CreateriaComponent
   ],
   imports: [
     CommonModule,
@@ -35,10 +51,19 @@ export const COMPONENT_SOURCE = new InjectionToken<string>('ComponentSource');
     FormsModule,
     ReactiveFormsModule,
     JsonPipe,
-
+    FlexLayoutModule,
+    FormsModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatOptionModule,
     HttpClientModule,
-    // ngx-translate and the loader module
-
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -46,14 +71,14 @@ export const COMPONENT_SOURCE = new InjectionToken<string>('ComponentSource');
         deps: [HttpClient],
       },
     }),
+    MatSnackBarModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
-
-
     ConnectionLostComponent,
-
-    // CommonModule,
-
     FormsModule,
     ReactiveFormsModule,
     JsonPipe,
@@ -61,7 +86,24 @@ export const COMPONENT_SOURCE = new InjectionToken<string>('ComponentSource');
     ConnectionLostComponent,
     SpinnerComponent,
     CustomDatePipe,
-    // CreateriaComponent
+    FlexLayoutModule,
+    FormsModule,
+
+    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSnackBarModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {

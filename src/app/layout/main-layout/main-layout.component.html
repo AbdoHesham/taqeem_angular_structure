@@ -1,12 +1,12 @@
 <div  [dir]="ChangeDirService.dir() === 'ar' ? 'rtl' : 'ltr'">
   <app-header></app-header>
-  <app-sidenav (onToggleSideNav)="onToggleSideNav($event)" *ngIf="hasLoggedIn"></app-sidenav>
+  <app-sidenav (onToggleSideNav)="onToggleSideNav($event)" ></app-sidenav>
   <!-- <div class="content-wrapper">
         <section class="content"> -->
   <div class="content-body" [ngClass]="getBodyClass()">
     <div class=" flex justify-content-start">
       
-      <p-breadcrumb class="max-w-full"  *ngIf="hasLoggedIn" [model]="crumbs$ | async" [home]="home"></p-breadcrumb>
+      <!-- <p-breadcrumb class="max-w-full"  *ngIf="hasLoggedIn" [model]="crumbs$ | async" [home]="home"></p-breadcrumb> -->
   </div>
     <!-- <div class="container-fluid"> -->
     <router-outlet></router-outlet>

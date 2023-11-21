@@ -1,4 +1,3 @@
-import { ConfigStateService, CurrentUserDto } from '@abp/ng.core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 

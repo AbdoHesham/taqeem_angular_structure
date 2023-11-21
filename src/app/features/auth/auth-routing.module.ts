@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
+// import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import { AuthComponent } from './auth.component';
 // import { ChangePasswordComponent } from './change-password/change-password.component';
 // import { OTPFormComponent } from './otp-form/otp-form.component';
 // import { LicenseFormComponent } from './license-form/license-form.component';
 // import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: AuthComponent,
-  //   children: [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+
+  {
+    path: '',
+    component: AuthComponent,
+    children: [
       {
-        path: '',
+        path: 'login',
         component: SigninComponent,
       },
       // {
@@ -37,8 +40,8 @@ const routes: Routes = [
       //   path: 'license',
       //   component:  LicenseFormComponent
       // },
-  //   ],
-  // },
+    ],
+  },
 ];
 
 @NgModule({

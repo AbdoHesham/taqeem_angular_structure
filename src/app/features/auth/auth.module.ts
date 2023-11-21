@@ -12,10 +12,13 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 // import { OTPFormComponent } from './otp-form/otp-form.component';
 import { SigninComponent } from './signin/signin.component';
 // import { SignupComponent } from './signup/signup.component';
-
+import { RouterModule } from '@angular/router';
+import { AuthComponent } from './auth.component';
+import { SharedModule } from '../../shared/shared.module';
 @NgModule({
   declarations: [
     SigninComponent ,
+    AuthComponent
     // OTPFormComponent ,
     // LicenseFormComponent ,
     // SignupComponent,
@@ -33,6 +36,9 @@ import { SigninComponent } from './signin/signin.component';
     }),
     ReactiveFormsModule,
     FormsModule,
+    RouterModule,
+    SharedModule,
+
   ]
 })
 export class AuthModule { }
