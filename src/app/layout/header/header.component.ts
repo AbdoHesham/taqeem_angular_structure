@@ -31,10 +31,11 @@ export class HeaderComponent {
     console.log(e);
   }
   initLang() {
-    localStorage.getItem('currentLang')
-      ? localStorage.getItem('currentLang')
-      : localStorage.setItem('currentLang', 'en');
-    this.currentLang = localStorage.getItem('currentLang') || 'en';
+    
+    // localStorage.getItem('currentLang')
+    //   ? localStorage.getItem('currentLang')
+    //   : localStorage.setItem('currentLang', 'en');
+    // this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.formGroup.controls['currentLang'].patchValue(this.currentLang);
   }
 
@@ -48,15 +49,15 @@ export class HeaderComponent {
     // );
   }
   changeCurrentLang(lang: string) {
-    this.ChangeDirService.onChangeLang(lang)
-    this.formGroup.controls['currentLang'].patchValue(lang);
-    const storedLang = localStorage.getItem('currentLang');
-    if (storedLang == lang) {
-      return;
-    } else {
-      localStorage.setItem('currentLang', lang);
-      location.reload();
-    }
+    // this.ChangeDirService.onChangeLang(lang)
+    // this.formGroup.controls['currentLang'].patchValue(lang);
+    // const storedLang = localStorage.getItem('currentLang');
+    // if (storedLang == lang) {
+    //   return;
+    // } else {
+    //   localStorage.setItem('currentLang', lang);
+    //   location.reload();
+    // }
   }
 
 

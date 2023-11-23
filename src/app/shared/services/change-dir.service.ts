@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChangeDirService {
-
-  constructor(   
-    ) { }
+  constructor() {}
   onChangeLang(cultureName: string) {
     // this.sessionState.setLanguage(cultureName);
   }
   dir() {
-    let dir = localStorage.getItem('currentLang');
-    return dir;
+    // if (typeof localStorage !== 'undefined') {
+    //   // localStorage is available, use it
+    //   return localStorage.getItem('currentLang') || 'en';
+    // }
+    return 'en';
   }
 }

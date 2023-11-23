@@ -35,6 +35,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatDividerModule} from '@angular/material/divider';
 import { SharedButtonComponent } from './components/shared-button/shared-button.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { SharedButtonComponent } from './components/shared-button/shared-button.
     MatTabsModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
-    MatDividerModule
+    MatDividerModule,
+    MatExpansionModule,
+    MatCheckboxModule
   ],
   exports: [
     FormsModule,
@@ -101,7 +105,10 @@ import { SharedButtonComponent } from './components/shared-button/shared-button.
     MatSidenavModule,
     MatProgressSpinnerModule,
     MatDividerModule,
-    SharedButtonComponent
+    SharedButtonComponent,
+    HttpClientModule,
+    MatExpansionModule,
+    MatCheckboxModule,
   ],
   providers: [
     {

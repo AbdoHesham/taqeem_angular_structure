@@ -16,6 +16,6 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent,
   ],
   exports: [],
-  imports: [LayoutRoutingModule, SharedModule],
+  imports: [LayoutRoutingModule, SharedModule,CommonModule ],
 })
 export class LayoutModule {}
