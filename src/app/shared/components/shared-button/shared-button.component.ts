@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-shared-button',
   templateUrl: './shared-button.component.html',
-  styleUrl: './shared-button.component.scss'
+  styleUrls:[ './shared-button.component.scss']
 })
 export class SharedButtonComponent {
   @Input() label: string = '';

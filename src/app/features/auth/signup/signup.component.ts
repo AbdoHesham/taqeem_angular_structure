@@ -7,13 +7,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgxPermissionsService } from 'ngx-permissions';
 import { InputValidation } from '../../../shared/utils/InputValidation';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.scss'
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
   password: any;
@@ -53,6 +52,8 @@ export class SignupComponent {
       username: this.form.get('email')?.value.trim(),
       password: this.form.get('password')?.value.trim(),
     };
+    localStorage.setItem('Access_user',this.form.get('email')?.value) 
+
     this.router.navigateByUrl('/layout')
   }
   ngOnDestroy() {}

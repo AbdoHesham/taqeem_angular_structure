@@ -1,0 +1,70 @@
+<div class="custom-card" (click)="productById(item?.id)">
+    <div
+      style="
+        padding-bottom: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <img class="item" [src]="item?.image" alt="" />
+    </div>
+    <h2 class="title">
+      {{ item?.title }}
+    </h2>
+    <b class="price">
+      {{ item?.price | currency }}
+    </b>
+    <p class="description">
+      {{ item?.description }}
+    </p>
+
+    <div
+      class="d-flex"
+      style="justify-content: space-between; align-items: center"
+    >
+      <!-- <bar-rating [theme]="'fontawesome-o'" [rate]="item['rating']['rate']" [max]="5" [readOnly]='true'>
+      </bar-rating> -->
+      <div class="rating">
+        <img
+          src="assets/img/star.png"
+          width="16px"
+          height="16px"
+          alt=""
+        />
+        <img
+          src="assets/img/star.png"
+          width="16px"
+          height="16px"
+          alt=""
+        />
+        <img
+          src="assets/img/star.png"
+          width="16px"
+          height="16px"
+          alt=""
+        />
+        <img
+          src="assets/img/star.png"
+          width="16px"
+          height="16px"
+          alt=""
+        />
+        <img
+          src="assets/img/star.png"
+          width="16px"
+          height="16px"
+          alt=""
+        />
+      </div>
+      <button style="height: 32px">
+        <img
+          src="assets/img/heart.png"
+          width="20px"
+          height="20px"
+          alt=""
+        />
+        Watch
+      </button>
+    </div>
+  </div>

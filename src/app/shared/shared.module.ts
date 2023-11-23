@@ -8,9 +8,9 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
   HTTP_INTERCEPTORS,
-  HttpClient,
-  HttpClientModule,
+  HttpClient
 } from '@angular/common/http';
+
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CustomDatePipe } from './pipes/custom-date.pipe';
 import { InjectionToken } from '@angular/core';
@@ -37,13 +37,18 @@ import {MatDividerModule} from '@angular/material/divider';
 import { SharedButtonComponent } from './components/shared-button/shared-button.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HeaderComponent } from './components/header/header.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatBadgeModule} from '@angular/material/badge';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     SpinnerComponent,
     CustomDatePipe,
     GenericGridComponent,
-    SharedButtonComponent
+    SharedButtonComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -62,7 +67,6 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,
-    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -77,7 +81,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatProgressSpinnerModule,
     MatDividerModule,
     MatExpansionModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgbModule,
+    MatBadgeModule,
+    RouterModule
   ],
   exports: [
     FormsModule,
@@ -88,7 +95,6 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     CustomDatePipe,
     FlexLayoutModule,
     FormsModule,
-
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
@@ -106,9 +112,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatProgressSpinnerModule,
     MatDividerModule,
     SharedButtonComponent,
-    HttpClientModule,
     MatExpansionModule,
     MatCheckboxModule,
+    HeaderComponent,
+    MatBadgeModule
   ],
   providers: [
     {
