@@ -5,9 +5,10 @@
 
       <mat-form-field>
         <input matInput placeholder="Email" formControlName="email" />
-        <mat-error *ngIf="form.get('username')?.hasError('required')">
-          Please provide a valid email address
-        </mat-error>
+
+        @if (form.get('username')?.hasError('required')) {
+        <mat-error> Please provide a valid email address </mat-error>
+        }
       </mat-form-field>
       <mat-form-field style="position: relative">
         <input
@@ -18,14 +19,14 @@
         />
 
         <mat-icon matSuffix (click)="show = !show">
-          {{ !show ? "visibility" : "visibility_off" }}
+          {{ !show ? 'visibility' : 'visibility_off' }}
         </mat-icon>
-        <mat-error *ngIf="form.get('password')?.hasError('required')">
-          Please provide a valid password
-        </mat-error>
-        <mat-error *ngIf="form.get('password')?.hasError('pattern')">
-          Please provide a valid format
-        </mat-error>
+
+        @if (form.get('password')?.hasError('required')) {
+        <mat-error> Please provide a valid password </mat-error>
+        } @else if (form.get('password')?.hasError('pattern')) {
+        <mat-error> Please provide a valid format </mat-error>
+        }
       </mat-form-field>
       <app-shared-button
         [label]="'SignUp'"
@@ -37,10 +38,7 @@
     <mat-divider></mat-divider>
 
     <div>
-      <app-shared-button
-        [label]="'Login'"
-        (buttonClick)="login()"
-      >
+      <app-shared-button [label]="'Login'" (buttonClick)="login()">
       </app-shared-button>
     </div>
   </mat-card-content>

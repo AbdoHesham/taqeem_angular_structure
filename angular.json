@@ -3,14 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "taqeem_angular_structure": {
+    "taqeem-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "skipTests": true,
-          "style": "scss"
-        },
-        "@schematics/angular:service": {
+          "style": "scss",
           "skipTests": true
         }
       },
@@ -19,11 +16,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/taqeem_angular_structure",
+            "outputPath": "dist/taqeem-angular",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -34,11 +31,17 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/theme.scss",
+              "src/theme-bootstrap.scss"
             ],
-            "scripts": []
-   
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -57,12 +60,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "taqeem_angular_structure:build:production"
+              "buildTarget": "taqeem-angular:build:production"
             },
             "development": {
-              "browserTarget": "taqeem_angular_structure:build:development"
+              "buildTarget": "taqeem-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "taqeem_angular_structure:build"
+            "buildTarget": "taqeem-angular:build"
           }
         },
         "test": {
@@ -99,7 +99,6 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -109,6 +108,6 @@
     }
   },
   "cli": {
-    "analytics": "a7c71194-b89b-4285-94d1-e7ea75b946db"
+    "analytics": "0d55ed89-212b-418f-aafa-7dd93e3198ba"
   }
 }

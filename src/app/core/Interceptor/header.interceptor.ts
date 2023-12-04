@@ -1,28 +1,27 @@
-import { Injectable } from '@angular/core';
 import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor,
   HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
 } from '@angular/common/http';
-import { Observable, map, finalize, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable, finalize, map, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { AlertService } from '../../shared/services/alert.service';
-@Injectable(
-  {
-    providedIn:'root'
-  }
-)
-
+// import { AlertService } from '../../shared/services/alert.service';
+@Injectable({
+  providedIn: 'root',
+})
 export class HeaderInterceptor implements HttpInterceptor {
   private activeRequests = 0;
-  constructor(
-    private AlertService: AlertService,
-  ) {}
+  // constructor(private AlertService: AlertService) {}
+  constructor() {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
     const reqCopy = request.clone();
     reqCopy.headers.set('AcceptLanguage', 'en');
 
@@ -31,7 +30,7 @@ export class HeaderInterceptor implements HttpInterceptor {
     // this.SpinnerService.isLoading.next(true);
 
     return next.handle(reqCopy).pipe(
-      map(event => {
+      map((event) => {
         return event;
       }),
       finalize(() => {
@@ -49,14 +48,12 @@ export class HeaderInterceptor implements HttpInterceptor {
         } else {
           if (typeof error.error == 'string') {
             errorMsg = ` ${JSON.parse(error.error)?.error?.message}`;
-          } else{
-            errorMsg = ` ${error.error?.error?.message}`
+          } else {
+            errorMsg = ` ${error.error?.error?.message}`;
           }
         }
         return throwError(errorMsg);
       })
-     
     );
-  
   }
 }

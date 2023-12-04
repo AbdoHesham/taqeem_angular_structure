@@ -1,0 +1,29 @@
+
+<mat-card>
+  <mat-card-content>
+    <div class="text-center">
+      <h2 class="custom-text-head">التسجيل</h2>
+      <p class="p-text-center mb-0">
+        تعتمد الخدمات الالكترونية علي آلية التوثيق الالكتروني من هويتك. لذا يتطلب ذلك التحقق من تسجيلك المسبق.
+    </div>
+<!-- [linear]="isLinear" -->
+    <mat-stepper  #stepper   [orientation]="(stepperOrientation | async)!" labelPosition="bottom">
+      <mat-step [stepControl]="firstFormGroup" label="المعلومات الشخصية">
+        <app-personal-info (callParrentToGoToNextStep)="callParrentToGoToNextStep($event)"
+        (callParrentToGoToPrevStep)="callParrentToGoToPrevStep($event)"
+
+        />
+
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup" label="العنوان الوطني">
+        <app-national-address  
+        (callParrentToGoToNextStep)="callParrentToGoToNextStep($event)"
+        (callParrentToGoToPrevStep)="callParrentToGoToPrevStep($event)"
+        />
+
+      </mat-step>
+    </mat-stepper>
+    
+    
+    </mat-card-content
+></mat-card>

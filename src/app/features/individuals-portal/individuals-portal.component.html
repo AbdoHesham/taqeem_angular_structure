@@ -1,0 +1,71 @@
+<div class="">
+  <app-horizontal-header />
+  <app-title-form>
+    <h1 class="headline-3 fw-bold pb-5">معلومات طلب تقييم</h1>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" >
+      <div fxFlex="49">
+        <input-field
+        [label]="'عنوان طلب التقييم'"
+        [placeholder]="'اكتب العنوان'"
+        [hint]="'استخدم هذا الحقل لإضافة عنوان تعريفي بطلب التقييم (هذا الحقل خاص بك ولا يظهر للمقيم)'"/>
+      </div>
+      <div fxFlex="49">
+        <select-field
+        [label]="'الغرض من التقييم'"
+        [placeholder]="'إختيار'"
+        [hint]="'تختلف تقارير التقييم حسب الغرض الذي طلبت من أجله'"/>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-5" >
+      <div fxFlex="49">
+        <input-field
+        [label]="'التفصيل في غرض التقييم'"
+        [placeholder]="'التفصيل في غرض التقييم'"/>
+      </div>
+      <div fxFlex="49">
+        <input-field
+        [label]="'مدة صلاحية طلب التقييم'"
+        [placeholder]="'10 ايام'"
+        [type]="'number'"
+        [hint]="'يلغى الطلب تلقائيًا بعد انقضاء مدة صلاحيته دون وجود عروض مقبولة'"/>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-5" >
+      <div fxFlex="49">
+        <radio-button
+        [label]="'نوع نسخة التقرير'"/>
+      </div>
+      <div fxFlex="49">
+        <input-field
+        [label]="'تسليم التقرير خلال'"
+        [placeholder]="'10 ايام'"
+        [type]="'number'"
+        [hint]="'عدد أيام العمل لتسليم تقرير التقييم بعد دفع الرسوم المستحقة لمنشأة التقييم'"/>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-5" >
+      <div fxFlex="100">
+        <text-area
+        [label]="'وصف طلب التقييم'"
+        [rows]="7"/>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end start" >
+      <div fxFlex="7">
+        <cancel-button
+          [label]="'إلغاء'"
+        >
+        </cancel-button>
+      </div>
+      <div fxFlex="7">
+        <app-shared-button
+          [label]="'الإستمرار'"
+        >
+        </app-shared-button>
+      </div>
+    </div>
+  </app-title-form>
+  <app-horizontal-footer />
+</div>  

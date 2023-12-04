@@ -1,0 +1,57 @@
+{
+  "shared": {
+    "search": "بحث"
+  },
+  "login": {
+    "login": "الدخول",
+    "userName": "اسم المستخدم",
+    "email": "البريد الالكتروني",
+    "emailMust": "يجب ادخال كلمة المرور",
+    "emailValid": "يرجى تقديم عنوان بريد إلكتروني صالح",
+    "password": "كلمة السر",
+    "passwordMust": "يجب ادخال كلمة المرور",
+    "passwordValid": "يرجى تقديم كلمة مرور صالحة",
+    "signUp": "انشاء حساب",
+    "ar": "العربية",
+    "en": "الانجليزية",
+    "loginViaNfaz": "الدخول عبر نفاذ"
+  },
+  "signup": {
+    "Register": "التسجيل",
+    "suadiRejisterHeaderParagraph": "تعتمد الخدمات الالكترونية علي آلية التوثيق الالكتروني من هويتك. لذا يتطلب ذلك التحقق من تسجيلك المسبق في خدمة “أبشر” ولمزيد من التفاصيل يمكنك زيارة الرابط: ",
+    "Register via absher": "طريقة التسجيل في أبشر",
+    "ID Number": "رقم الهوية",
+    "Enter the ID number": "ادخل رقم الهوية",
+    "Date of birth": "تاريخ الميلاد",
+    "Enter": "ادخل",
+    "The code is in the picture": "الرمز في الصورة",
+    "Data recovery": "استعادة البيانات",
+    "suadiRejisterFooterParagraph": "في حال لم تكن مواطنًا سعوديًا أو مقيمًا فيها، بإمكانك التسجيل",
+    "via this link": "عبر هذا الرابط",
+    "sign in": "تسجيل الدخول",
+    "OTB code verification": "تأكيد رمز التحقق",
+    "OTBHeaderParagraph": "نأمل منكم إدخال الرمز المرسل على الرقم المسجل في أبشر.",
+    "Verification Code": "رمز التحقق",
+    "seconds remaining until code expiration": "{{value1}} ثانية متبقية علي انتهاء صلاحية الرمز",
+    "Resend Verification Code": "إعادة إرسال رمز التحقق",
+    "Submit": "إدخال",
+    "EmailOrIDNumberLabel":"البريد الإلكتروني / رقم الهوية",
+    "EmailOrIDNumberPlacholder":"ادخل البريد الالكتروني أو رقم الهوية",
+    "Password":"كلمة المرور",
+    "EnterPassword":"ادخل كلمة المرور الخاصة بك",
+    "Remember me":"تذكرني",
+    "Forgot your password":"نسيت كلمة المرور؟",
+    "CreateaccountOrRetrieveData":"إنشاء حساب  / استعادة البيانات",
+    "loginHeaderParagraph":"شكرًا لاهتمامك بالانضمام إلينا. يُرجى تسجيل الدخول للاستمتاع بميزات كاملة وتجربة مستخدم مخصصة.",
+    "Login":"تسجيل الدخول"
+  },
+  "errors":{
+    "emailError":"هذا البريد غير صحيح برجاء التأكد من البريد المدخل ",
+    "IdNumberError":"رقم الهوية غير صحيح قم بإعادة إدخال رقم الهوية",
+    "IdNotInSystemError":"رقم الهوية غير مسجل بالنظام برجاء إنشاء حساب ",
+    "EmailNotInSystemError":"البريد الالكتروني غير مسجل بالنظام برجاء إنشاء حساب ",
+    "passwordError":"كلمة المرور غير صحيحة إذا كنت تواجه مشكلة في تذكر  كلمة المرور يمكنك إعادة تعيينها",
+    "verificationCodeIncorrect": "رمز التحقق المدخل غير صحيح",
+    "verificationCodeExpired": "لقد انتهت فترة صلاحية الرمز قم بإعادة إرسال رمز التحقق"
+  }
+}

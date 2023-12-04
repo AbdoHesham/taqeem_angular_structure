@@ -1,0 +1,50 @@
+.custom-text-head {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 56px;
+font-style: normal;
+}
+
+.text-start {
+  text-align: start !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.p-text-center {
+  color: #424143;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px; /* 171.429% */
+  text-align: center !important;
+
+}
+.a-text-underline {
+  color: #1a4681;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+  text-decoration-line: underline;
+}
+.a-text-underline-bold {
+    color: #1a4681;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 32px; /* 200% */
+    text-decoration-line: underline;
+    cursor: pointer;
+  }
+
+.mb-84{
+    margin-bottom: 84px !important;
+}
+
+// .text-error{
+//   border: 1px solid  #D31212;
+// background: #FFF0F0;
+// }
+
+::ng-deep.mdc-text-field--invalid{
+  border: 1px solid  #D31212!important;
+background: #FFF0F0!important;
+}

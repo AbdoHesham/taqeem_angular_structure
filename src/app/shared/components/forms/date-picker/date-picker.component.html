@@ -1,0 +1,7 @@
+<mat-label class="text-start">{{label}}</mat-label>
+<mat-form-field appearance="outline" class="d-flex pt-3">
+    <input matInput [matDatepicker]="picker" [disabled]="isDisabled" [formControl]="control" [placeholder]="placeholder" (click)="picker.open()">
+    <mat-hint>{{hint}}</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>

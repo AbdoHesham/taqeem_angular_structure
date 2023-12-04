@@ -1,0 +1,19 @@
+<mat-label class="text-start">{{label}}</mat-label>
+<!-- // {{ !show ? 'visibility' : 'visibility_off' }} -->
+<mat-form-field appearance="outline" class="d-flex pt-3">
+    <input matInput [placeholder]="placeholder" [type]="type==='password' ? ( !show ? 'password':'text') : type" [disabled]="isDisabled" [formControl]="control" [class]="control?.invalid? 'text-error' :''" >
+   @if (type === 'password'){
+       <mat-icon  matSuffix (click)="show = !show ">
+        <img [src]="!show ? 'assets/img/eye.svg' :'assets/img/closed_eye.svg'" alt="" srcset="">
+       </mat-icon>
+   }
+
+    <mat-error *ngIf="control?.invalid && control?.touched" class="error-message">
+        {{ getErrorMessages() }}
+
+    </mat-error>
+
+    <mat-hint>{{hint}}</mat-hint>
+    <!-- <ng-content></ng-content> -->
+    
+</mat-form-field>

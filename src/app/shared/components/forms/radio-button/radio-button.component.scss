@@ -1,0 +1,25 @@
+
+:host ::ng-deep .mdc-text-field--outlined {
+  background-color: #fbfbfb !important;
+}
+::ng-deep .mdc-notched-outline__leading {
+  border-color: #E0DFE0 !important;
+  border-width: 1px !important ;
+}
+::ng-deep .mdc-notched-outline__notch {
+  border-color: #E0DFE0 !important;
+  border-width: 1px !important ;
+}
+::ng-deep .mdc-notched-outline__trailing {
+  border-color: #E0DFE0 !important;
+  border-width: 1px !important ;
+}
+
+.mat-mdc-radio-button.mat-primary{
+  background-color: #fbfbfb !important;
+  border-color: #E0DFE0 !important;
+  border-width: 1px !important ;
+  border-radius: 8px !important;
+  padding: 10px 20px 10px 166px !important;
+  margin-left: 10px !important;
+}

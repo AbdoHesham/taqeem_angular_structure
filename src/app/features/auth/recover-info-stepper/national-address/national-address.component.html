@@ -1,0 +1,100 @@
+<mat-divider></mat-divider>
+
+<form [formGroup]="form">
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutAlign="space-between stretch"
+  >
+    <div fxFlex="49">
+      <select-field
+        [label]="'City' + '*'"
+        [placeholder]="'Choose'"
+        [control]="form.get('city')"
+        [options]="options"
+      />
+    </div>
+    <div fxFlex="49">
+      <select-field
+        [label]="'District' + '*'"
+        [placeholder]="'Choose'"
+        [control]="form.get('district')"
+        [options]="options"
+      />
+    </div>
+  </div>
+
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutAlign="space-between stretch"
+  >
+    <div fxFlex="49">
+      <input-field
+        [label]="'Street' + '*'"
+        [placeholder]="'Enter Street'"
+        [control]="form.get('street')"
+      />
+    </div>
+    <div fxFlex="49">
+      <input-field
+        [label]="'Building number' + '*'"
+        [placeholder]="'Enter Building number'"
+        [control]="form.get('buildingNumber')"
+      />
+    </div>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutAlign="space-between stretch"
+  >
+    <div fxFlex="49">
+      <input-field
+        [label]="'Additional number' + '*'"
+        [placeholder]="'Enter Additional number'"
+        [control]="form.get('additionalNumber')"
+      />
+    </div>
+    <div fxFlex="49">
+      <input-field
+        [label]="'Postal Code' + '*'"
+        [placeholder]="'Enter Postal Code'"
+        [control]="form.get('postalCode')"
+      />
+    </div>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutAlign="space-between stretch"
+  >
+    <div fxFlex="100">
+      <input-field
+        [label]="'National abbreviated address' + '*'"
+        [placeholder]="'Enter National abbreviated address'"
+        [control]="form.get('nationalAbbreviatedAddress')"
+      />
+    </div>
+
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-4">
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+      <app-shared-button
+        [label]="'Submit Application'"
+        (buttonClick)="submit()"
+        [isDisabled]="!form.valid"
+      >
+      </app-shared-button>
+
+      <span>
+        <cancel-button [label]="'Skip'" >
+        </cancel-button>
+      </span>
+    </div>
+    <div>
+      <a class="a-text-underline-bold" (click)="back()"> {{ "Back" | translate }}</a>
+    </div>
+  </div>
+</form>

@@ -1,18 +1,34 @@
-
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
+  ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
+import { SharedButtonComponent } from '../../../shared/components/forms/shared-button/shared-button.component';
 import { InputValidation } from '../../../shared/utils/InputValidation';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrl: './signup.component.scss',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    MatDividerModule,
+    SharedButtonComponent,
+  ],
 })
 export class SignupComponent {
   password: any;
@@ -21,14 +37,10 @@ export class SignupComponent {
   form!: FormGroup;
   changePassword: boolean = false;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router
-  ) 
-  {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
-    this.initForm()
+    this.initForm();
   }
 
   initForm() {
@@ -43,8 +55,8 @@ export class SignupComponent {
     });
   }
 
-  login(){
-    this.router.navigateByUrl('/auth/login')
+  login() {
+    this.router.navigateByUrl('auth/login');
   }
 
   submit() {
@@ -52,9 +64,7 @@ export class SignupComponent {
       username: this.form.get('email')?.value.trim(),
       password: this.form.get('password')?.value.trim(),
     };
-    localStorage.setItem('Access_user',this.form.get('email')?.value) 
-
-    this.router.navigateByUrl('/layout')
+    this.router.navigateByUrl('/layout');
   }
   ngOnDestroy() {}
 }

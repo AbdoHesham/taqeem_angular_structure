@@ -1,0 +1,9 @@
+@import "../../../../assets/scss/matirial.scss";
+
+::ng-deep code-input span input {
+  width: 56px !important;
+  height: 56px  !important;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}

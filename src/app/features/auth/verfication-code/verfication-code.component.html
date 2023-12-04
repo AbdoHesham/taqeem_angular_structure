@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-card-content>
+    <div class="text-center">
+      <h2 class="custom-text-head">
+        {{ "signup.OTB code verification" | translate }}
+      </h2>
+      <p class="p-text-center mb-0">
+        {{ "signup.OTBHeaderParagraph" | translate }}
+      </p>
+    </div>
+    <mat-divider></mat-divider>
+    <p class="text-start">{{ "signup.Verification Code" | translate }}</p>
+    <div
+      [dir]="'ltr'"
+      style="display: flex; justify-content: center; align-items: center"
+    >
+      <code-input
+        [codeLength]="4"
+        (codeChanged)="onCodeChanged($event)"
+        (codeCompleted)="onCodeCompleted($event)"
+        [isCodeHidden]="false"
+      >
+      </code-input>
+    </div>
+    <div class="mt-3 mb-84 text-center">
+      <p>
+        {{ "signup.seconds remaining until code expiration" | translate : { value1: seconds} }}
+        <span>
+          <a class="a-text-underline">
+            {{ "signup.Resend Verification Code" | translate }}</a
+          >
+        </span>
+      </p>
+    </div>
+    <app-shared-button
+      [label]="'signup.Submit' | translate"
+      (buttonClick)="submit()"
+      [isDisabled]="userCode == null"
+    >
+    </app-shared-button>
+    <!-- <div class="text-center">
+      <a class="a-text-underline-bold">تسجيل الدخول</a>
+    </div> -->
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,89 @@
+<div class="bg-white" fxLayout="row" fxLayout.xs="column">
+  <mat-toolbar fxFlex="95" class="bg-white mt-4 mb-4" dir="rtl">
+    <!-- <button mat-button routerLink="/">
+      <mat-icon>home</mat-icon> 
+    </button> -->
+
+    <button
+      mat-icon-button
+      [mat-menu-trigger-for]="menu"
+      fxHide="false"
+      fxHide.gt-sm
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <span>
+      <img src="assets/img/logo-taqeem.svg" class="img-style" />
+    </span>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-remaining-space">
+      <div
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxShow="false"
+        fxShow.gt-sm
+      >
+        <button mat-button routerLink="/products">
+          <h6 class="fw-bold">عن بوابة الافراد</h6>
+        </button>
+        <button mat-button routerLink="/dashboard">
+          <h6 class="fw-bold">خدمات التقييم</h6>
+        </button>
+        <button mat-button routerLink="/dashboard1">
+          <h6 class="fw-bold">تواصل معنا</h6>
+        </button>
+      </div>
+    </span>
+
+    <button mat-icon-button aria-label="Example icon-button with heart icon">
+      <mat-icon class="text-light">chat_bubble_outline</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Example icon-button with share icon">
+      <mat-icon class="text-light">notifications_none</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="langmenu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon class="text-light">language</mat-icon>
+    </button>
+    <mat-menu #langmenu="matMenu">
+      <button mat-menu-item (click)="changeLang()">
+        <span>{{
+      changeLangService.currentLang == 'ar'
+            ? ("login.en" | translate)
+            : ("login.ar" | translate)
+        }}</span>
+      </button>
+    </mat-menu>
+    <span class="d-inline-flex" fxFlex="21">
+      <img
+        src="assets/img/Avatar.svg"
+        class="rounded-circle"
+        width="55"
+        alt="Avatar"
+      />
+      <h6 class="align-self-center p-1" fxShow="false" fxShow.gt-sm>
+        محمد القحطاني
+      </h6>
+      <mat-icon class="align-self-center text-light"
+        >keyboard_arrow_down</mat-icon
+      >
+    </span>
+  </mat-toolbar>
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/products">
+      <h4 class="fw-bold">عن بوابة الافراد</h4>
+    </button>
+    <button mat-menu-item routerLink="/dashboard">
+      <h4 class="fw-bold">خدمات التقييم</h4>
+    </button>
+    <button mat-menu-item routerLink="/dashboard1">
+      <h4 class="fw-bold">تواصل معنا</h4>
+    </button>
+    <!--<button mat-menu-item>Help</button>-->
+  </mat-menu>
+  <!-- <div fxFlex="5"></div> -->
+</div>

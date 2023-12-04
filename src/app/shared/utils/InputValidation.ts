@@ -1,10 +1,4 @@
-import {
-  AbstractControl,
-  FormControl,
-  FormGroup,
-  ValidationErrors,
-  ValidatorFn,
-} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 export class InputValidation {
   //french
@@ -14,7 +8,7 @@ export class InputValidation {
   static frenchNumericWithspecialRegex = new RegExp(
     /^[a-zA-ZÀ-ÿ\s0-9'’\-\-\_\.\,\?\/\:\;\@\!\#\$\%\^\&\*\(\)\+\=\|\~\`\'\"]+$/
   );
- 
+
   static frenchWithspecialRegex = new RegExp(
     /^[a-zA-ZÀ-ÿ\s'’\-\-\_\.\,\?\/\:\;\@\!\#\$\%\^\&\*\(\)\+\=\|\~\`\'\"]+$/
   );
@@ -38,23 +32,24 @@ export class InputValidation {
   static EnglishNumericRegx = `[a-zA-Z0-9 ]*`;
   static EnglishNumericSpacesRegx = /^[a-zA-Z0-9\s]*$/;
 
-  
   static ArabicNumericRegx = `^[\u0600-\u06FF0-9]+$`;
   static ArabicNumericSpacesRegx = /^[\u0600-\u06FF0-9\s]+$/;
 
-  
   static EnglishNumberWithspecialRegx = new RegExp(
     /^[a-zA-Z\s0-9\-\_\.\,\?\/\:\;\@\!\#\$\%\^\&\*\(\)\+\=\|\~\`\'\’\"]+$/
   );
-  static EnglishEditor = new RegExp(/^[A-Za-z\s\<\>\/\&nbsp\;\<br\>[0-9]*$/ );
-  static englishPattern = new RegExp( /^[A-Za-z\s\<p\>\>\/\<\\p\>\&nbsp\;\<br\>s0-9]*$/);
+  static EnglishEditor = new RegExp(/^[A-Za-z\s\<\>\/\&nbsp\;\<br\>[0-9]*$/);
+  static englishPattern = new RegExp(
+    /^[A-Za-z\s\<p\>\>\/\<\\p\>\&nbsp\;\<br\>s0-9]*$/
+  );
 
-  static ArabicEditor = 
-  new RegExp( /^[\u0600-\u06FF\u0750-\u077F\s\<p\>\>\/\<\\p\>\&nbsp\;\<br\>s0-9]+$/ );
+  static ArabicEditor = new RegExp(
+    /^[\u0600-\u06FF\u0750-\u077F\s\<p\>\>\/\<\\p\>\&nbsp\;\<br\>s0-9]+$/
+  );
 
   //new RegExp("^[\\u0600-\\u06FF\\u0750-\\u077F\\s\<\\>\/]*$");
-   
-  static frenchEditor = new RegExp(/^[a-zA-ZÀ-ÿ\s\<\>\/]*$/  );
+
+  static frenchEditor = new RegExp(/^[a-zA-ZÀ-ÿ\s\<\>\/]*$/);
 
   //numbers
   static onlyNumberRegx = new RegExp(/^\d+$/);
@@ -70,7 +65,9 @@ export class InputValidation {
   static MobileGeneralApattern = new RegExp(/^(\d{8,20})$/);
 
   static AltMobileEgpattern = new RegExp(/^01[0125][0-9]{8}$/);
-  static AltMobileKSApattern = new RegExp(/^(009665|9665|\+9665|05|5)(5|0|3|6|4|9|1|8|7)([0-9]{7})$/);
+  static AltMobileKSApattern = new RegExp(
+    /^(009665|9665|\+9665|05|5)(5|0|3|6|4|9|1|8|7)([0-9]{7})$/
+  );
 
   static whatsApp = new RegExp(/^(\+?\d*)$/);
   static whatsAppCode = new RegExp(/^(\+?\d{0,4})$/);
@@ -78,7 +75,9 @@ export class InputValidation {
   static FacebookUrlRegex = new RegExp(
     /^(https|http)?:\/\/(www\.)?facebook\.com\/[a-zA-Z0-9.-]+\/?$/
   );
-  static twitterUrlRegex = new RegExp(/^(https|http)?:\/\/(www\.)?twitter\.com\/[a-zA-Z0-9_]+\/?$/);
+  static twitterUrlRegex = new RegExp(
+    /^(https|http)?:\/\/(www\.)?twitter\.com\/[a-zA-Z0-9_]+\/?$/
+  );
   static instagramUrlRegex = new RegExp(
     /^(https|http)?:\/\/(www\.)?instagram\.com\/[a-zA-Z0-9_]+\/?$/
   );
@@ -88,20 +87,29 @@ export class InputValidation {
   static linkedinUrlRegex = new RegExp(
     /^(https|http)?:\/\/(www\.)?linkedin\.com\/(in|company)\/[a-zA-Z0-9._-]+(\/.*)?$/i
   );
-  static promocodeRegex = new RegExp(/^[a-zA-Z0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$/);
+  static promocodeRegex = new RegExp(
+    /^[a-zA-Z0-9\s!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$/
+  );
   // /((\d){21}(,)?){1,4}((\d){21})+/g
+  static validEmail = new RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
 
-  static complexPassword= new RegExp( '^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*');
+  static complexPassword = new RegExp(
+    '^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*'
+  );
 
   static capitalSmallValidation(c: FormControl) {
-    return c.value.match('^(?=.*[a-z])(?=.*[A-Z])^[^]+$') ? null : { capital_small: true };
+    return c.value.match('^(?=.*[a-z])(?=.*[A-Z])^[^]+$')
+      ? null
+      : { capital_small: true };
   }
   static OneNumberValidation(c: FormControl) {
     return c.value.match('^(?=.*[0-9])^[^]+$') ? null : { oneNumber: true };
   }
 
   static SpecialCharValidation(c: FormControl) {
-    return c.value.match(/["!#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g) ? null : { SpecialChar: true };
+    return c.value.match(/["!#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g)
+      ? null
+      : { SpecialChar: true };
   }
 }
 
@@ -232,8 +240,7 @@ export class InputValidation {
 // export function GetDate(date) {
 //   try{
 //   // if (Date.parse(date) != null) {
-    
- 
+
 //   // }
 //   const dateWithoutTimezone = new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
 
@@ -242,5 +249,5 @@ export class InputValidation {
 //   catch{
 //     return date;
 //   }
-  
+
 // }

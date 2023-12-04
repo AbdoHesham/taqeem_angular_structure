@@ -1,16 +1,88 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./assets/themw/main.scss";
-// @import '/node_modules/ngx-bar-rating/themes/br-stars-theme.scss';
-// @import '/node_modules/ngx-bar-rating/themes/br-default-theme';
-// @import '/node_modules/ngx-bar-rating/themes/br-fontawesome-theme';
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+// font-family: Roboto, "Helvetica Neue", sans-serif;
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: white;
+  background-image: url("./assets/img/background.png");
+  background-size: cover; /* Adjust as needed */
+  background-attachment: fixed;
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+}
 .mat-divider {
-    display: block;
-    margin-block: 15px!important;
-    border-top-style: solid;
+  display: block;
+  margin-block: 40px !important;
+  border-top-style: solid;
+}
 
+/* You can add global styles to this file, and also import other style files */
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* @font-face {
+    font-family: Cairo;
+    src: url(assets/fonts/Cairo/static/Cairo-Medium.ttf) format("opentype");
+  } */
+
+@font-face {
+  font-family: "Frutiger LT Arabic 45";
+  src: url("assets/fonts/Frutiger/FrutigerLTArabic-45Light.woff2")
+      format("woff2"),
+    url("assets/fonts/Frutiger/FrutigerLTArabic-45Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Frutiger LT Arabic 45";
+  src: url("assets/fonts/Frutiger/FrutigerLTArabic-65Bold.woff2")
+      format("woff2"),
+    url("assets/fonts/Frutiger/FrutigerLTArabic-65Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Frutiger LT Arabic 45";
+  src: url("assets/fonts/Frutiger/FrutigerLTArabic-75Black.woff2")
+      format("woff2"),
+    url("assets/fonts/Frutiger/FrutigerLTArabic-75Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+h6,
+h5,
+h4,
+h3,
+h2,
+h1,
+html,
+body,
+p,
+span,
+strong,
+div {
+  font-family: "Frutiger LT Arabic 45" !important;
+}
+@import "./assets/scss/text.scss";
+@import "./assets/scss/inputs.scss";
+.mt-16{
+    margin-top: 16px!important;
+}
+.mt-24{
+    margin-top: 24px!important;
+}
+.mb-16{
+    margin-bottom: 16px!important;
+}
+.mb-24{
+    margin-bottom: 24px!important;
 }

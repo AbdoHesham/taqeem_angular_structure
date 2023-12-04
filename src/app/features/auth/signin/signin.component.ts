@@ -1,17 +1,59 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
+  ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { SharedButtonComponent } from '../../../shared/components/forms/shared-button/shared-button.component';
+import { SharedMapComponent } from '../../../shared/components/shared-map/shared-map.component';
+import { ChangeDirService } from '../../../shared/services/change-dir.service';
 import { InputValidation } from '../../../shared/utils/InputValidation';
+import { TitleFormComponent } from '../../../shared/components/forms/title-form/title-form.component';
+import { InputFieldComponent } from '../../../shared/components/forms/input-field/input-field.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutServerModule } from '@angular/flex-layout/server';
+import { SelectFieldComponent } from '../../../shared/components/forms/select-field/select-field.component';
+import { TextAreaComponent } from '../../../shared/components/forms/text-area/text-area.component';
+import { RadioButtonComponent } from '../../../shared/components/forms/radio-button/radio-button.component';
+import { CancelButtonComponent } from '../../../shared/components/forms/cancel-button/cancel-button.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    MatDividerModule,
+    SharedButtonComponent,
+    TranslateModule,
+    SharedMapComponent,
+    TitleFormComponent,
+    InputFieldComponent,
+    FlexLayoutModule,
+    FlexLayoutServerModule,
+    SelectFieldComponent,
+    TextAreaComponent,
+    RadioButtonComponent,
+    CancelButtonComponent,
+    MatCheckboxModule,
+    TranslateModule
+  ],
+  providers: [ChangeDirService],
 })
 export class SigninComponent {
   password: any;
@@ -22,12 +64,13 @@ export class SigninComponent {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
-  ) 
-  {}
+    private router: Router,
+    public changeLangService: ChangeDirService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit() {
-    this.initForm()
+    this.initForm();
   }
 
   initForm() {
@@ -37,13 +80,13 @@ export class SigninComponent {
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(50),
-        Validators.pattern(InputValidation.complexPassword),
+        // Validators.pattern(InputValidation.complexPassword),
       ]),
     });
   }
 
-  signup(){
-    this.router.navigateByUrl('/auth/signup')
+  signup() {
+    this.router.navigateByUrl('signup');
   }
 
   submit() {
@@ -51,8 +94,15 @@ export class SigninComponent {
       username: this.form.get('email')?.value.trim(),
       password: this.form.get('password')?.value.trim(),
     };
-    localStorage.setItem('Access_user',this.form.get('email')?.value) 
-    this.router.navigateByUrl('/layout')
+    this.router.navigateByUrl('/individuals');
   }
+
+
+
   ngOnDestroy() {}
+  recoverData(){
+    this.router.navigateByUrl('signup/recover-info');
+
+  }
+
 }

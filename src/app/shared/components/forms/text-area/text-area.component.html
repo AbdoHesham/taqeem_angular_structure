@@ -1,0 +1,6 @@
+<mat-label>{{label}}</mat-label>
+<mat-form-field class="d-flex pt-3" appearance="outline">
+    <textarea matInput [placeholder]="placeholder" class="example-input" [rows]="rows"></textarea>
+    <mat-hint>{{hint}}</mat-hint>
+    <ng-content></ng-content>
+</mat-form-field>
