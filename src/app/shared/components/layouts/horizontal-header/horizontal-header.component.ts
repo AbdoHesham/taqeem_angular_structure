@@ -34,8 +34,8 @@ export class HorizontalHeaderComponent {
   ngOnInit() {
     this.currentLang = localStorage.getItem('lang') || '';
   }
-  changeLang() {
-    this.currentLang=this.currentLang == 'en'? 'ar' :'en';
-    this.changeLangService.changeLang(this.currentLang);
+  changeLang(lang:string) {
+    // this.currentLang=this.currentLang == 'en'? 'ar' :'en';
+    this.changeLangService.changeLang(lang);
   }
 }

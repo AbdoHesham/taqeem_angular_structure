@@ -25,6 +25,7 @@ import {
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-recover-info-stepper',
@@ -43,6 +44,7 @@ import { AsyncPipe } from '@angular/common';
     MatCardModule,
     MatDividerModule,
     AsyncPipe,
+    TranslateModule
   ],
   templateUrl: './recover-info-stepper.component.html',
   styleUrl: './recover-info-stepper.component.scss',

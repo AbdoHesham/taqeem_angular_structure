@@ -25,7 +25,7 @@ import { SelectFieldComponent } from '../../../shared/components/forms/select-fi
 import { TextAreaComponent } from '../../../shared/components/forms/text-area/text-area.component';
 import { RadioButtonComponent } from '../../../shared/components/forms/radio-button/radio-button.component';
 import { CancelButtonComponent } from '../../../shared/components/forms/cancel-button/cancel-button.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-signin',
@@ -51,7 +51,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     RadioButtonComponent,
     CancelButtonComponent,
     MatCheckboxModule,
-    TranslateModule
+    TranslateModule,
   ],
   providers: [ChangeDirService],
 })
@@ -97,12 +97,12 @@ export class SigninComponent {
     this.router.navigateByUrl('/individuals');
   }
 
-
-
-  ngOnDestroy() {}
-  recoverData(){
-    this.router.navigateByUrl('signup/recover-info');
-
+  loginViaNfaz() {
+    this.router.navigateByUrl('auth/login/nfaz');
   }
 
+  ngOnDestroy() {}
+  recoverData() {
+    this.router.navigateByUrl('signup/recover-info');
+  }
 }

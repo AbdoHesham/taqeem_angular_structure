@@ -12,7 +12,14 @@ export const routes: Routes = [
         (m) => m.SigninComponent
       ),
   },
-
+  {
+    path: 'auth/login/nfaz',
+    loadComponent: () =>
+      import('./features/auth/login-via-nfaz/login-via-nfaz.component').then(
+        (m) => m.LoginViaNfazComponent
+      ),
+  },
+  
   {
     path: 'signup',
     loadComponent: () =>
@@ -41,6 +48,7 @@ export const routes: Routes = [
         (m) => m.RecoverInfoStepperComponent
       ),
   },
+
   {
     path: 'individuals',
     component: IndividualsPortalComponent,

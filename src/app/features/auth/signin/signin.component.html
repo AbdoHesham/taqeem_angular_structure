@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-content>
     <form [formGroup]="form">
-      <h2 class="text-center">{{ "login.login" | translate }}</h2>
+      <h2 class="text-center custom-text-head">{{ "login.login" | translate }}</h2>
 
       <p class="p-text-center mb-0">
         {{ "signup.loginHeaderParagraph" | translate }}
@@ -45,10 +45,11 @@
     </form>
     <div class="mb-24">
       <app-shared-button [label]="'login.loginViaNfaz' | translate"
-      (buttonClick)="submit()"
-
+      (buttonClick)="loginViaNfaz()"
+      [className]="'btn-nfaz'"
       >
       </app-shared-button>
+      
     </div>
 
     <div class="text-center">

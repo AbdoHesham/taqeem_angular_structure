@@ -97,7 +97,7 @@ export class PersonalInfoComponent {
       ]),
       mobileNumber: new FormControl(null, [
         Validators.required,
-        Validators.pattern(InputValidation.MobileKSApattern),
+        // Validators.pattern(InputValidation.MobileKSApattern),
       ]),
       passward: new FormControl(null, [
         Validators.required,

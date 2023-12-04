@@ -1,5 +1,11 @@
-button{
-    width: 100%;
-    border-radius: 8px;
-    height: 56px;
+button {
+  width: 100%;
+  border-radius: 8px;
+  height: 56px;
+  font-weight: 700;
+  line-height: 32px; /* 200% */
+}
+.btn-nfaz {
+  background: #f8f9f9;
+  color: #0fa69c !important;
 }

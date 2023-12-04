@@ -50,12 +50,15 @@
       <mat-icon class="text-light">language</mat-icon>
     </button>
     <mat-menu #langmenu="matMenu">
-      <button mat-menu-item (click)="changeLang()">
-        <span>{{
-      changeLangService.currentLang == 'ar'
-            ? ("login.en" | translate)
-            : ("login.ar" | translate)
-        }}</span>
+      <button mat-menu-item (click)="changeLang('en')">
+        <span>
+          {{"login.en" | translate}}
+          </span>
+      </button>
+      <button mat-menu-item (click)="changeLang('ar')">
+        <span>
+          {{"login.ar" | translate}}
+          </span>
       </button>
     </mat-menu>
     <span class="d-inline-flex" fxFlex="21">

@@ -74,7 +74,7 @@ export class NationalAddressComponent {
       additionalNumber: new FormControl(null, [Validators.required]),
       postalCode: new FormControl(null, [Validators.required]),
       nationalAbbreviatedAddress: new FormControl(null, [Validators.required]),
-      nationalIdImg: new FormControl(null, [Validators.required]),
+      // nationalIdImg: new FormControl(null, [Validators.required]),
     });
   }
 

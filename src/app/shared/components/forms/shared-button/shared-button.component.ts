@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 export class SharedButtonComponent {
   @Input() label: string = '';
   @Input() tooltip: string = '';
+  @Input() color: string = 'primary';
+  @Input() className: string = '';
   @Input() isDisabled: boolean = false;
   @Output() buttonClick: EventEmitter<void> = new EventEmitter<void>();
 
