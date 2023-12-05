@@ -1,1 +1,22 @@
-@import '../../../../assets/scss/matirial.scss'
+@import '../../../../assets/scss/matirial.scss';
+.signup{
+    border-radius: 20px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    &__footer{
+        p{
+            text-align: center;
+            font-size: 12px;
+            font-weight: 300;
+            a{
+                color: #1A4681;
+               font-weight: 400 !important;
+               cursor: pointer;
+            }
+        }
+
+    }
+}
+.mat-mdc-card{
+    border-radius: 8px !important;
+}

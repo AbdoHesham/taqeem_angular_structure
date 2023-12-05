@@ -1,7 +1,6 @@
 <mat-card>
-    <mat-card-content>
-        <form [formGroup]="form" skipValidation>
-
+  <mat-card-content>
+    <form [formGroup]="form" skipValidation>
       <div class="text-center">
         <h2 class="custom-text-head">
           {{ "signup.logWithNfaz" | translate }}
@@ -13,12 +12,12 @@
       <mat-divider></mat-divider>
 
       <input-field
-        [label]="('signup.ID Number' | translate) + '*'"
+        [label]="('signup.ID Number' | translate) + ' *'"
         [placeholder]="'signup.Enter the ID number' | translate"
         [type]="'text'"
         [control]="form.get('nationalId')"
       />
-  
+
       <!-- (buttonClick)="submit()" -->
       <app-shared-button
         [label]="'signup.Continue' | translate"
@@ -26,9 +25,10 @@
       >
       </app-shared-button>
       <div class="text-center">
-        <a class="a-text-underline-bold" (click)="login()"> {{'signup.taqeemLogin' | translate}}</a>
+        <a class="a-text-underline-bold" (click)="login()">
+          {{ "signup.taqeemLogin" | translate }}</a
+        >
       </div>
-        </form>
-    </mat-card-content>
-  </mat-card>
-  
+    </form>
+  </mat-card-content>
+</mat-card>

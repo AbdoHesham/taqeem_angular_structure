@@ -33,31 +33,29 @@
     "seconds remaining until code expiration": "{{value1}} seconds remaining until code expiration ",
     "Resend Verification Code": "Resend Verification Code",
     "Submit": "Submit",
-    "EmailOrIDNumberLabel":"Email / ID Number",
-    "EmailOrIDNumberPlacholder":"Enter your email or ID number",
-    "Password":"Password",
-    "EnterPassword":"Enter your password",
-    "Remember me":"Remember me",
-    "Forgot your password":"Forgot your password?",
-    "CreateaccountOrRetrieveData":"Create an account / Retrieve data",
-    "loginHeaderParagraph":"Thank you for your interest in joining us. Please log in to enjoy full features and a personalized user experience.",
-    "Login":"Login",
-    "recoverDataHeaderParagraph":"If you are not a Saudi citizen or resident, please enter your data"   ,
-    "stepOneLabel":"personal information",
-    "stepTwoLabel":"National address" ,
-    "logWithNfaz":"Login via Nfaz",
-    "Continue":"Continue",
-    "taqeemLogin":"Login via Taqeem"
-
+    "EmailOrIDNumberLabel": "Email / ID Number",
+    "EmailOrIDNumberPlacholder": "Enter your email or ID number",
+    "Password": "Password",
+    "EnterPassword": "Enter your password",
+    "Remember me": "Remember me",
+    "Forgot your password": "Forgot your password?",
+    "CreateaccountOrRetrieveData": "Create an account / Retrieve data",
+    "loginHeaderParagraph": "Thank you for your interest in joining us. Please log in to enjoy full features and a personalized user experience.",
+    "Login": "Login",
+    "recoverDataHeaderParagraph": "If you are not a Saudi citizen or resident, please enter your data",
+    "stepOneLabel": "personal information",
+    "stepTwoLabel": "National address",
+    "logWithNfaz": "Login via Nfaz",
+    "Continue": "Continue",
+    "taqeemLogin": "Login via Taqeem"
   },
-  "errors":{
-    "emailError":"This email is incorrect. Please verify the entered email.",
-    "IdNumberError":"The ID number is incorrect. Please re-enter the ID number.",
-    "IdNotInSystemError":"The ID number is not registered in the system. Please create an account.",
-    "EmailNotInSystemError":"This email is not registered in the system. Please create an account.",
-    "passwordError":"Incorrect password. Reset it if you're having trouble remembering.",
+  "errors": {
+    "emailError": "This email is incorrect. Please verify the entered email.",
+    "IdNumberError": "The ID number is incorrect. Please re-enter the ID number.",
+    "IdNotInSystemError": "The ID number is not registered in the system. Please create an account.",
+    "EmailNotInSystemError": "This email is not registered in the system. Please create an account.",
+    "passwordError": "Incorrect password. Reset it if you're having trouble remembering.",
     "verificationCodeIncorrect": "The entered verification code is incorrect.",
     "verificationCodeExpired": "The verification code has expired. Please resend the verification code."
   }
-
 }
