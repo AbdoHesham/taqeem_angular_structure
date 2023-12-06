@@ -86,7 +86,12 @@ div {
 .mb-24{
     margin-bottom: 24px!important;
 }
-  .mat-mdc-form-field-hint-wrapper, .mat-mdc-form-field-error-wrapper{
-    padding: 0px !important;
-  }
-  
+
+.mat-mdc-form-field-flex .mat-mdc-form-field-icon-suffix .mat-icon{
+  margin-top:-7px !important;
+}
+/* .signin .signin__form .mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input,
+.signin .signin__form .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+  padding-inline-start: 16px !important;
+}
+*/
