@@ -62,16 +62,6 @@
         {{ "signup.CreateaccountOrRetrieveData" | translate }}</a
       >
     </div>
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
   </mat-card-content>
 </mat-card>
-
-<!-- <app-shared-button
-  [label]="
-    changeLangService.currentLang == changeLangService.arLang
-      ? ('login.en' | translate)
-      : ('login.ar' | translate)
-  "
-  (buttonClick)="changeLang()"
-></app-shared-button>
-
-<app-shared-map></app-shared-map> -->

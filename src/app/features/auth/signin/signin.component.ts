@@ -26,6 +26,8 @@ import { TextAreaComponent } from '../../../shared/components/forms/text-area/te
 import { RadioButtonComponent } from '../../../shared/components/forms/radio-button/radio-button.component';
 import { CancelButtonComponent } from '../../../shared/components/forms/cancel-button/cancel-button.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CustomAlertComponent } from '../../../shared/components/custom-alert/custom-alert.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-signin',
@@ -56,6 +58,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   providers: [ChangeDirService],
 })
 export class SigninComponent {
+  animal: string = '';
+  name: string = '';
   password: any;
   show = false;
   public CustomControler: any;
@@ -66,7 +70,8 @@ export class SigninComponent {
     private fb: FormBuilder,
     private router: Router,
     public changeLangService: ChangeDirService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -104,5 +109,15 @@ export class SigninComponent {
   ngOnDestroy() {}
   recoverData() {
     this.router.navigateByUrl('signup/recover-info');
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CustomAlertComponent, {
+      data: { name: this.name, animal: this.animal },
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 }
