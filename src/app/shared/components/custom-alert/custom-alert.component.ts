@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import {
   MatDialog,
@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-custom-alert',
@@ -23,11 +24,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     MatButtonModule,
     MatDialogModule,
+    TranslateModule,
   ],
   templateUrl: './custom-alert.component.html',
   styleUrl: './custom-alert.component.scss',
 })
 export class CustomAlertComponent {
-
+  @Input() srcLink: string = '';
   constructor(public dialog: MatDialog) {}
 }

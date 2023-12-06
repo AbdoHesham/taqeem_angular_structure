@@ -114,21 +114,24 @@
     "passwordHint": "The password must contain 8 or more characters. And use at least one number.",
     "Cancel": "Cancel"
   },
-  "nationalAddress":{
-    "City":"City",
-    "Choose":"Choose",
-    "District":"District",
-    "Street":"Street",
-    "EnterStreet":"Enter Street",
-    "Buildingnumber":"Building number",
-    "EnterBuildingnumber":"Enter Building number",
-    "Additionalnumber":"Additional number",
-    "EnterAdditionalNumber":"Enter Additional number",
-    "PostalCode":"Postal Code",
-    "EnterPostalCode":"Enter Postal Code",
-    "SubmitApplication":"Submit Application",
-    "Skip":"Skip",
-    "Nationalabbreviatedaddress":"National abbreviated address",
-    "EnterNationalabbreviatedaddress":"Enter National abbreviated address"
+  "nationalAddress": {
+    "City": "City",
+    "Choose": "Choose",
+    "District": "District",
+    "Street": "Street",
+    "EnterStreet": "Enter Street",
+    "Buildingnumber": "Building number",
+    "EnterBuildingnumber": "Enter Building number",
+    "Additionalnumber": "Additional number",
+    "EnterAdditionalNumber": "Enter Additional number",
+    "PostalCode": "Postal Code",
+    "EnterPostalCode": "Enter Postal Code",
+    "SubmitApplication": "Submit Application",
+    "Skip": "Skip",
+    "Nationalabbreviatedaddress": "National abbreviated address",
+    "EnterNationalabbreviatedaddress": "Enter National abbreviated address"
+  },
+  "popup": {
+    "RegisterSuccess": "successfully registered"
   }
 }

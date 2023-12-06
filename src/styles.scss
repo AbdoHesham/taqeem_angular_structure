@@ -90,6 +90,9 @@ div {
 .mat-mdc-form-field-flex .mat-mdc-form-field-icon-suffix .mat-icon{
   margin-top:-7px !important;
 }
+.mat-mdc-dialog-container .mdc-dialog__surface{
+  border-radius: 16px !important;
+}
 /* .signin .signin__form .mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input,
 .signin .signin__form .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
   padding-inline-start: 16px !important;
