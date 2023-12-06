@@ -94,7 +94,7 @@ export class SigninComponent {
       username: this.form.get('email')?.value.trim(),
       password: this.form.get('password')?.value.trim(),
     };
-    this.router.navigateByUrl('/individuals');
+    this.router.navigateByUrl('signup/verfication-code/absher');
   }
 
   loginViaNfaz() {

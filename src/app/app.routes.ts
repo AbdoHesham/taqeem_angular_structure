@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { IndividualsPortalComponent } from './features/individuals-portal/individuals-portal.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'auth/signup/suadi-citizen', pathMatch: 'full' },
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
 
   {
     path: 'auth/login',

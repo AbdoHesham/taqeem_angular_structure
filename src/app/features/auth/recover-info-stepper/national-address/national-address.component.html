@@ -8,17 +8,17 @@
   >
     <div fxFlex="49">
       <select-field
-        [label]="'City' + '*'"
-        [placeholder]="'Choose'"
-        [control]="form.get('city')"
+        [label]="('nationalAddress.City' | translate) + '*'"
+        [placeholder]="'nationalAddress.Choose' | translate"
+        [controlF]="form.get('city')"
         [options]="options"
       />
     </div>
     <div fxFlex="49">
       <select-field
-        [label]="'District' + '*'"
-        [placeholder]="'Choose'"
-        [control]="form.get('district')"
+        [label]="('nationalAddress.District'|translate) + '*'"
+        [placeholder]="'nationalAddress.Choose'| translate"
+        [controlF]="form.get('district')"
         [options]="options"
       />
     </div>
@@ -31,16 +31,16 @@
   >
     <div fxFlex="49">
       <input-field
-        [label]="'Street' + '*'"
-        [placeholder]="'Enter Street'"
-        [control]="form.get('street')"
+        [label]="('nationalAddress.Street' | translate) + '*'"
+        [placeholder]="'nationalAddress.EnterStreet' | translate"
+        [controlF]="form.get('street')"
       />
     </div>
     <div fxFlex="49">
       <input-field
-        [label]="'Building number' + '*'"
-        [placeholder]="'Enter Building number'"
-        [control]="form.get('buildingNumber')"
+        [label]="('nationalAddress.Buildingnumber' | translate) + '*'"
+        [placeholder]="'nationalAddress.EnterBuildingnumber' | translate"
+        [controlF]="form.get('buildingNumber')"
       />
     </div>
   </div>
@@ -51,16 +51,16 @@
   >
     <div fxFlex="49">
       <input-field
-        [label]="'Additional number' + '*'"
-        [placeholder]="'Enter Additional number'"
-        [control]="form.get('additionalNumber')"
+        [label]="('nationalAddress.Additionalnumber' | translate) + '*'"
+        [placeholder]="'nationalAddress.EnterAdditionalNumber' | translate"
+        [controlF]="form.get('additionalNumber')"
       />
     </div>
     <div fxFlex="49">
       <input-field
-        [label]="'Postal Code' + '*'"
-        [placeholder]="'Enter Postal Code'"
-        [control]="form.get('postalCode')"
+        [label]="('nationalAddress.PostalCode' | translate) + '*'"
+        [placeholder]="'nationalAddress.EnterPostalCode'| translate"
+        [controlF]="form.get('postalCode')"
       />
     </div>
   </div>
@@ -71,25 +71,28 @@
   >
     <div fxFlex="100">
       <input-field
-        [label]="'National abbreviated address' + '*'"
-        [placeholder]="'Enter National abbreviated address'"
-        [control]="form.get('nationalAbbreviatedAddress')"
+        [label]="('nationalAddress.Nationalabbreviatedaddress' | translate)+ '*'"
+        [placeholder]="'nationalAddress.EnterNationalabbreviatedaddress' | translate"
+        [controlF]="form.get('nationalAbbreviatedAddress')"
       />
     </div>
 
   </div>
 
   <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-4">
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
-      <app-shared-button
-        [label]="'Submit Application'"
-        (buttonClick)="submit()"
-        [isDisabled]="!form.valid"
-      >
-      </app-shared-button>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+
+      <span class="margin-inline-end-20">
+        <app-shared-button
+          [label]="'nationalAddress.SubmitApplication' | translate"
+          (buttonClick)="submit()"
+          [isDisabled]="!form.valid"
+        >
+        </app-shared-button>
+      </span>
 
       <span>
-        <cancel-button [label]="'Skip'" >
+        <cancel-button [label]="'nationalAddress.Skip' | translate" >
         </cancel-button>
       </span>
     </div>

@@ -1,0 +1,28 @@
+<div class="pt5 pb-5 mt-5" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
+    <div class="px-2" fxFlex="20">
+        <h3 >{{ 'infoDepartement.subTitle' | translate }}</h3>
+    </div>
+    <div fxFlex="70"></div>
+    <div fxFlex="10">
+        <button mat-button color="primary" class="fw-bold" (click)="openDialog()">{{ 'infoDepartement.addDepartement' | translate }}</button>
+        <!-- <h6 class="text-primary"></h6> -->
+    </div>
+</div>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
+    <div fxFlex="100">
+        <data-table [dataSourceTable]="dataSourceTable" [displayedColumns]="displayedColumns" [isFilter]="isFilter" />
+    </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-evenly stretch" class="pb-4 pt-5">
+    <cancel-button
+      fxFlex="50"
+      [label]="'عودة'">
+    </cancel-button>
+    <cancel-button 
+      fxFlex="50"
+      fxLayoutAlign="end"
+      [label]="'الاستمرار'"
+      color="primary">
+    </cancel-button>
+</div>

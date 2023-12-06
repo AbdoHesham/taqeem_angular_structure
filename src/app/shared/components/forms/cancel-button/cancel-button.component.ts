@@ -14,6 +14,7 @@ export class CancelButtonComponent implements OnInit {
   
   @Input() label: string = '';
   @Input() tooltip: string = '';
+  @Input() color: string = '';
   @Input() isDisabled: boolean = false;
   @Output() buttonClick: EventEmitter<void> = new EventEmitter<void>();
 

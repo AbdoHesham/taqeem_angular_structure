@@ -1,0 +1,126 @@
+<h3 class="fw-bold pt-3 px-4">{{ 'infoCompony.subTitle' | translate }}</h3>
+<form
+formGroup="companyData"
+(ngSubmit)="$event.preventDefault(); submitForm()">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" >
+    <div fxFlex="49">
+      <select-field
+      [label]="'اختيار منشآت تقييم محددة'"
+      [placeholder]="'إختيار المنشآة'"
+      [hint]="'هل تريد تحديد منشأة محددة أو أكثر لاستقبال العرض المالي منها؟ أو اترك هذا الخيار فارغًا وسيقوم النظام بإرسال الطلب لكل المنشآت المسجلة بالنظام'"
+      [options]="options"
+      [controlF]="getFormGroup('senderName1')"/>
+    </div>
+    <div fxFlex="49">
+      <select-field
+      [label]="'الاستخدام الحالي للاصل محل التقييم'"
+      [placeholder]="'إختيار'"
+      [options]="options1"
+      [controlF]="getFormGroup('senderName2')"/>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-5">
+    <div fxFlex="100">
+      <radio-button
+      [label]="'آلية اختيار العروض'"
+      [radios]="radios"
+      [hint]="'اختر يدوي في حال أردت أن تطلع على عروض التقييم وتختار منها، أو تلقائي ليختار لك النظام أفضل العروض بناءً على معايير محددة'"
+      (radioChange)="changeRadio()"
+      [controlF]="getFormGroup('senderName3')"/>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-5" *ngIf="radioValue === '1'" >
+    <div fxFlex="49">
+      <input-field
+      [label]="'أقصى مدة لإختيار العروض التلقائي'"
+      [placeholder]="'5 أيام'"
+      [type]="'number'"
+      [controlF]="getFormGroup('senderName4')"/>
+    </div>
+    <div fxFlex="49">
+      <select-field
+      [label]="'شرط اختيار العروض تلقائيًا بناءً على'"
+      [placeholder]="'إختيار'"
+      [options]="options2"
+      [controlF]="getFormGroup('senderName5')"/>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-3">
+    <div fxFlex="100">  
+      <radio-button
+      [label]="'هل تريد إضافة دافع'"
+      [radios]="radios1"
+      (radioChange)="changeRadio1()"
+      [controlF]="getFormGroup('senderName6')"/>
+    </div>
+  </div>   
+
+  <div *ngIf="radioValue1 === '1'">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-3">
+      <div fxFlex="100">  
+        <h5 class="fw-bold pt-3 px-4">إضافة دافع</h5>
+      </div>
+    </div> 
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-3 px-4">
+      <div fxFlex="100">  
+        <mat-divider></mat-divider>
+      </div> 
+    </div> 
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start stretch" class="pt-3" >
+      <div fxFlex="49">
+        <input-field
+        [label]="'اسم الدافع'"
+        [placeholder]="'ادخل اسم الدافع'"
+        [controlF]="getFormGroup('senderName7')"/>
+      </div>
+      <div fxFlex="11" class="pe-4">
+        <select-field
+        [label]="'رقم هاتف الدافع'"
+        [placeholder]="'إختيار'"
+        [options]="options3"
+        [controlF]="getFormGroup('senderName8')"/>
+      </div>
+      <div fxFlex="38" class="pt-4">
+        <input-field
+        [placeholder]="'00'"
+        [controlF]="getFormGroup('senderName9')"/>
+      </div>
+    </div> 
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-3" >
+      
+      <div fxFlex="49">
+        <select-field
+        [label]="'نوع هوية الدافع'"
+        [placeholder]="'إختيار'"
+        [options]="options4"
+        [controlF]="getFormGroup('senderName10')"/>
+      </div>
+      <div fxFlex="49">
+        <input-field
+        [label]="'رقم هوية الدافع'"
+        [placeholder]="'ادخل رقم هوية الدافع'"
+        [type]="'number'"
+        [controlF]="getFormGroup('senderName11')"/>
+      </div>
+    </div> 
+
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="end start">
+    <cancel-button
+    fxFlex="84"
+    fxLayoutAlign="start start"
+    [label]="'عودة'">
+  </cancel-button>
+    <cancel-button
+      fxFlex="8"
+      [label]="'إلغاء'">
+    </cancel-button>
+    <app-shared-button
+      fxFlex="8"
+      [label]="'إرسال'"
+      [isDisabled]="companyData.invalid">
+    </app-shared-button>
+</div>
+
+</form>  

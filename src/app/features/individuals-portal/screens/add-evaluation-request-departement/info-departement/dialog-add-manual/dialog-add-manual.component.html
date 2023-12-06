@@ -1,0 +1,129 @@
+<h3 class="fw-bold pt-3 px-4">{{ 'infoDepartement.subTitle' | translate }}</h3>
+<mat-dialog-content>
+  <form
+  formGroup="returnData"
+  (ngSubmit)="$event.preventDefault(); submitForm()">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" >  
+    <div fxFlex="49">
+      <input-field
+      [label]="'رقم صك الملكية'"
+      [placeholder]="'22'"
+      [controlF]="getFormGroup('senderName1')"/>
+    </div>
+    <div fxFlex="49">
+      <input-field
+      [label]="'ملف صك الملكية'"
+      [placeholder]="'لم تقم بإختيار ملف '"
+      [type]="'file'"
+      [controlF]="getFormGroup('senderName2')"/>
+    </div>  
+  </div> 
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" >
+    <div fxFlex="49">
+      <select-field
+      [label]="'نوع الاصل محل التقييم'"
+      [placeholder]="'إختيار'"
+      [options]="options1"
+      [controlF]="getFormGroup('senderName3')"/>
+    </div>
+    <div fxFlex="49">
+      <select-field
+      [label]="'الاستخدام الحالي للاصل محل التقييم'"
+      [placeholder]="'إختيار'"
+      [options]="options"
+      [controlF]="getFormGroup('senderName4')"/>
+    </div>
+  </div> 
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" >
+    <div fxFlex="49">
+      <radio-button
+      [label]="'موقع الاصل'"
+      [radios]="radios"
+      (radioChange)="changeRadio()"
+      [controlF]="getFormGroup('senderName5')"/>
+    </div>
+    <div fxFlex="49">
+      <input-field
+      [label]="'رقم المخطط'"
+      [placeholder]="'12'"
+      [controlF]="getFormGroup('senderName6')"/>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" *ngIf="radioValue === '1'">
+    <div fxFlex="100">
+      <app-shared-map />
+    </div>
+  </div> 
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" *ngIf="radioValue === '2'" >
+    <div fxFlex="100">
+      <select-field
+      [label]="'المنطقة'"
+      [placeholder]="'إختيار'"
+      [options]="options2"
+      [controlF]="getFormGroup('senderName10')"/>
+    </div>
+  </div> 
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" *ngIf="radioValue === '2'">
+    <div fxFlex="100">
+      <select-field
+      [label]="'المدينة'"
+      [placeholder]="'إختيار'"
+      [options]="options3"
+      [controlF]="getFormGroup('senderName11')"/>
+    </div>
+  </div> 
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" *ngIf="radioValue === '2'">
+    <div fxFlex="100">
+      <select-field
+      [label]="'الحي'"
+      [placeholder]="'إختيار'"
+      [options]="options4"
+      [controlF]="getFormGroup('senderName12')"/>
+    </div>
+  </div> 
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" *ngIf="radioValue === '2'">
+    <div fxFlex="100">
+      <input-field
+      [label]="'الشارع'"
+      [controlF]="getFormGroup('senderName13')"/>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" >
+    <div fxFlex="49">
+      <input-field
+      [label]="'رقم القطعة'"
+      [placeholder]="'76'"
+      [controlF]="getFormGroup('senderName7')"/>
+    </div>
+    <div fxFlex="49">
+      <input-field
+      [label]="'عمر الاصل'"
+      [placeholder]="'سنوات'"
+      [type]="'number'"
+      [controlF]="getFormGroup('senderName8')"/>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" >
+    <div fxFlex="100">
+      <input-field
+      [label]="'المساحة'"
+      [placeholder]="'2 متر مربع'"
+      [controlF]="getFormGroup('senderName9')"/>
+    </div>
+  </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-evenly stretch" class="pb-4 pt-3 px-4">
+  <cancel-button
+    fxFlex="50"
+    [label]="'عودة'">
+  </cancel-button>
+  <cancel-button 
+    fxFlex="50"
+    fxLayoutAlign="end"
+    class="px-3"
+    [label]="'حفظ'"
+    [isDisabled]="returnData.invalid"
+    color="primary">
+  </cancel-button>
+</mat-dialog-actions>

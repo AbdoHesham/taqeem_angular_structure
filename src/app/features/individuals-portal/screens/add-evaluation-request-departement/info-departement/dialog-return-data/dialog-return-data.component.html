@@ -1,0 +1,32 @@
+<h3 class="fw-bold text-center pt-3">{{ 'infoDepartement.subTitle' | translate }}</h3>
+<mat-dialog-content>
+  <form
+  formGroup="returnData"
+  (ngSubmit)="$event.preventDefault(); submitForm()">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" >
+    <div fxFlex="100">
+      <input-field
+      [label]="'رقم صك الملكية'"
+      [placeholder]="'22'"
+      [controlF]="getFormGroup('senderName1')"/>
+    </div>  
+  </div>  
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row wrap" fxLayoutAlign="space-between stretch" fxLayoutGap="2" class="pb-4 mx-3">
+  <div fxFlex="49">
+  <cancel-button
+    class="d-grid"
+    [label]="'تعيين الاصل يدويا'"
+    mat-dialog-close
+    (buttonClick)="onNoClick()">
+  </cancel-button>
+  </div>
+  <div fxFlex="49">
+  <cancel-button
+    class="d-grid"
+    [label]="'إسترجاع البيانات'"
+    color="primary">
+  </cancel-button>
+  </div>
+</mat-dialog-actions>

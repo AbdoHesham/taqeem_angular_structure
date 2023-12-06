@@ -40,6 +40,7 @@ import { ChangeDirService } from '../../../shared/services/change-dir.service';
     FlexLayoutServerModule,
     DatePickerComponent,
     TranslateModule,
+    DatePickerComponent
   ],
   templateUrl: './suadi-signup.component.html',
   styleUrl: './suadi-signup.component.scss',

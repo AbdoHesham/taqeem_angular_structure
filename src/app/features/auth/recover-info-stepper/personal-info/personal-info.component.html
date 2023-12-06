@@ -7,16 +7,16 @@
   >
     <div fxFlex="49" fxLayoutGap="20px">
       <input-field
-        [label]="'Name In English' + '*'"
-        [placeholder]="'Enter Your Name'"
-        [control]="form.get('nameEn')"
+        [label]="('personalInfo.NameInEnglish' | translate) + '*'"
+        [placeholder]="'personalInfo.EnterYourName' | translate"
+        [controlF]="form.get('nameEn')"
       />
     </div>
     <div fxFlex="49">
       <input-field
-        [label]="'Name In Arabic' + '*'"
-        [placeholder]="'Enter Your Name'"
-        [control]="form.get('nameAr')"
+        [label]="('personalInfo.NameInArabic' | translate) + '*'"
+        [placeholder]="'personalInfo.EnterYourName' | translate"
+        [controlF]="form.get('nameAr')"
       />
     </div>
   </div>
@@ -27,17 +27,17 @@
   >
     <div fxFlex="49" fxLayoutGap="20px">
       <select-field
-        [label]="'ID Type' + '*'"
-        [placeholder]="'Select ID Type'"
-        [control]="form.get('IDType')"
+        [label]="('personalInfo.IDType' | translate) + '*'"
+        [placeholder]="'personalInfo.SelectIDType' | translate"
+        [controlF]="form.get('IDType')"
         [options]="options"
       />
     </div>
     <div fxFlex="49">
       <input-field
-        [label]="'ID Number' + '*'"
-        [placeholder]="'Enter Your ID Number'"
-        [control]="form.get('IDNumber')"
+        [label]="('personalInfo.IDNumber' | translate) + '*'"
+        [placeholder]="'personalInfo.EnterYourIDNumber' | translate"
+        [controlF]="form.get('IDNumber')"
       />
     </div>
   </div>
@@ -48,17 +48,17 @@
   >
     <div fxFlex="49" fxLayoutGap="20px">
       <select-field
-        [label]="'Nationality' + '*'"
-        [placeholder]="'Select Your Nationality'"
-        [control]="form.get('nationality')"
+        [label]="('personalInfo.Nationality' | translate) + '*'"
+        [placeholder]="'personalInfo.SelectYourNationality' | translate"
+        [controlF]="form.get('nationality')"
         [options]="options"
       />
     </div>
     <div fxFlex="49">
       <select-field
-        [label]="'Gender' + '*'"
-        [placeholder]="'Select Your Gender'"
-        [control]="form.get('gender')"
+        [label]="('personalInfo.Gender' | translate) + '*'"
+        [placeholder]="'personalInfo.SelectYourGender' | translate"
+        [controlF]="form.get('gender')"
         [options]="options"
       />
     </div>
@@ -70,85 +70,91 @@
   >
     <div fxFlex="49" fxLayoutGap="20px">
       <app-date-picker
-        [label]="'Date of birth (Gregorian)' + '*'"
-        [placeholder]="'Select Your Date of birth (Gregorian)'"
-        [type]="'date'"
-        [control]="form.get('DOPGregorian')"
-      />
-    </div>
-    <div fxFlex="49">
-      <app-date-picker
-        [label]="'Date of birth (Hijri)' + '*'"
-        [placeholder]="'Select Your Date of birth (Hijri)'"
-        [type]="'date'"
-        [control]="form.get('DOPHijri')"
-      />
-    </div>
-  </div>
-  <div
-    fxLayout="row"
-    fxLayout.xs="column"
-    fxLayoutAlign="space-between stretch"
-  >
-    <div fxFlex="49" fxLayoutGap="20px">
-      <input-field
-        [label]="'Email' + '*'"
-        [placeholder]="'Enter Your Email'"
-        [control]="form.get('email')"
-      />
-    </div>
-    <div fxFlex="49">
-      <input-field
-        [label]="'Mobile Number' + '*'"
-        [placeholder]="'Enter Your Mobile Number'"
-        [control]="form.get('mobileNumber')"
-      />
-    </div>
-  </div>
-  <div
-    fxLayout="row"
-    fxLayout.xs="column"
-    fxLayoutAlign="space-between stretch"
-  >
-    <div fxFlex="49" fxLayoutGap="20px">
-      <input-field
-        [label]="'Passward' + '*'"
-        [placeholder]="'Enter Your Passward'"
-        [control]="form.get('passward')"
-        [type]="'password'"
-        [hint]="
-          'يجب أن تحتوي كلمة المرور على 8 أحرف أو أكثر . واستخدام رقم واحد علي الأقل.'
+        [label]="('personalInfo.DateofbirthGregorian' | translate) + '*'"
+        [placeholder]="
+          'personalInfo.SelecYourtDateofbirthGregorian' | translate
         "
+        [type]="'date'"
+        [controlF]="form.get('DOPGregorian')"
+      />
+    </div>
+    <div fxFlex="49">
+      <app-date-picker
+        [label]="('personalInfo.DateofbirthHijri' | translate) + '*'"
+        [placeholder]="
+          ('personalInfo.SelecYourtDateofbirthHijri' | translate) + '*'
+        "
+        [type]="'date'"
+        [controlF]="form.get('DOPHijri')"
+      />
+    </div>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutAlign="space-between stretch"
+  >
+    <div fxFlex="49" fxLayoutGap="20px">
+      <input-field
+        [label]="('personalInfo.Email' | translate) + '*'"
+        [placeholder]="'personalInfo.EnterYourEmail' | translate"
+        [controlF]="form.get('email')"
       />
     </div>
     <div fxFlex="49">
       <input-field
-        [label]="'Confirm Passward' + '*'"
-        [placeholder]="'Enter Your Confirm Passward'"
-        [control]="form.get('confirmPassward')"
+        [label]="('personalInfo.MobileNumber' | translate) + '*'"
+        [placeholder]="'personalInfo.EnterYourMobileNumber' | translate"
+        [controlF]="form.get('mobileNumber')"
+      />
+    </div>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutAlign="space-between stretch"
+  >
+    <div fxFlex="49" fxLayoutGap="20px">
+      <input-field
+        [label]="('personalInfo.Passward' | translate) + '*'"
+        [placeholder]="'personalInfo.EnterYourPassward' | translate"
+        [controlF]="form.get('passward')"
+        [type]="'password'"
+        [hint]="'personalInfo.passwordHint' | translate"
+      />
+    </div>
+    <div fxFlex="49">
+      <input-field
+        [label]="('personalInfo.ConfirmPassward' | translate) + '*'"
+        [placeholder]="'personalInfo.EnterYourConfirmPassward' | translate"
+        [controlF]="form.get('confirmPassward')"
         [type]="'password'"
       />
     </div>
   </div>
   <div fxLayout="row" fxLayoutAlign="space-between center" class="mt-4">
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
-      <app-shared-button
-        [label]="'Save and continue'"
-        (buttonClick)="submit()"
-        [isDisabled]="!form.valid"
-      >
-      </app-shared-button>
-      
-      <span >
-        <cancel-button
-          [label]="'Cancel'"
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <span class="margin-inline-end-20">
+        <app-shared-button
+          [label]="'personalInfo.Saveandcontinue' | translate"
           (buttonClick)="submit()"
+          [isDisabled]="!form.valid"
         >
-        </cancel-button>
+        </app-shared-button>
       </span>
+
+      <!-- <span> -->
+      <cancel-button
+        [label]="'personalInfo.Cancel' | translate"
+        
+      >
+      </cancel-button>
+      <!-- </span> -->
     </div>
     <div>
-      <a class="a-text-underline-bold" (click)="login()"> {{'login.login' | translate}}</a>
+      <a class="a-text-underline-bold" (click)="login()">
+        {{ "login.login" | translate }}</a
+      >
     </div>
   </div>
 </form>

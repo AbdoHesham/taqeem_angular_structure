@@ -1,16 +1,12 @@
 <mat-label>{{label}}</mat-label>
 <mat-form-field appearance="outline" class="d-flex pt-3">
-
-  <select matNativeControl class="example-input" [placeholder]="placeholder"  [class]="control?.invalid? 'text-error' :''"
-  [formControl]="control"
-  
-  >
-  @for (option of options; track option) {
-    <option [value]="option?.id">{{option?.name}}</option>
-  }
-  </select>
+  <mat-select [placeholder]="placeholder" [formControl]="controlF" [errorStateMatcher]="matcher">
+    <mat-option *ngFor="let option of options" [value]="option.id">{{option.name}}</mat-option>
+  </mat-select>
   <mat-hint>{{hint}}</mat-hint>
-  <!-- <ng-content></ng-content> -->
+  @if (controlF.hasError('required')) {
+    <mat-error>{{label}} <strong>{{ 'valdation.required' | translate }}</strong></mat-error>
+  }
 </mat-form-field>
 <!-- <mat-form-field>
   <mat-label>{{label}}</mat-label>

@@ -1,5 +1,9 @@
 <mat-label>{{label}}</mat-label>
-<mat-radio-group [formControl]="floatLabelControl" class="d-flex pt-3" color="primary">
-  <mat-radio-button value="auto">نسخة الكترونية</mat-radio-button>
-  <mat-radio-button value="always">نسخة ورقية</mat-radio-button>
-</mat-radio-group>
+  <!-- <mat-radio-group [formControl]="floatLabelControl" class="d-flex pt-3" color="primary"> -->
+  <mat-radio-group [formControl]="controlF" class="d-flex pt-3 mb-3" color="primary"  fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end stretch" fxLayoutGap="20px">
+    <mat-radio-button fxFlex="50"  class="px-2 pt-2 pb-2 mx-2" *ngFor="let radio of radios" [value]="radio.value" (change)="handleClick()">{{radio.display}}</mat-radio-button>
+  </mat-radio-group>
+  <mat-hint>{{hint}}</mat-hint>
+  <mat-error *ngIf="controlF.hasError('required') && (controlF?.invalid && controlF?.dirty || controlF?.touched)">
+    {{label}} <strong>{{ 'valdation.required' | translate }}</strong>
+  </mat-error>

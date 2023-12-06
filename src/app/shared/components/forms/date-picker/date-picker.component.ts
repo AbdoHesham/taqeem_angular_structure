@@ -6,10 +6,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-date-picker',
   standalone: true,
-  imports: [CommonModule,MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,FormsModule,ReactiveFormsModule,],
+  imports: [CommonModule,MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,FormsModule,ReactiveFormsModule,    TranslateModule,
+  ],
   templateUrl: './date-picker.component.html',
   styleUrl: './date-picker.component.scss'
 })
@@ -20,15 +22,18 @@ export class DatePickerComponent {
   @Input() type: string = 'text';
   @Input() isDisabled: boolean = false;
   @Output() inputChange: EventEmitter<string> = new EventEmitter<string>();
-  @Input() control: FormControl | AbstractControl<any, any> | any = null;
+  @Input() control: FormControl | AbstractControl<any, any> | any ;
   @Input() validators: ValidatorFn[] | null = null;
+  @Input() controlF: FormControl | AbstractControl<any, any> | any ;
+  
   ngOnInit() {
     if (this.control instanceof FormControl && this.validators) {
       this.validators.forEach(validator => {
         this.control?.setValidators(validator);
       });
     }
-    this.control.patchValue(this.control.value);
+    // this.control.patchValue(this.control.value);
+    this.controlF.patchValue(this.controlF.value);
 
   }
   getErrorMessage(): string | null {

@@ -11,12 +11,12 @@
       <input-field
         [label]="('signup.EmailOrIDNumberLabel' | translate) + '*'"
         [placeholder]="('signup.EmailOrIDNumberPlacholder' | translate)"
-        [control]="form.get('email')"
+        [controlF]="form.get('email')"
       />
       <input-field
         [label]="('signup.Password' |translate) + '*'"
         [placeholder]="('signup.EnterPassword' |translate)"
-        [control]="form.get('password')"
+        [controlF]="form.get('password')"
         [type]="'password'"
       />
       <div

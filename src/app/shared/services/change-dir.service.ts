@@ -19,64 +19,37 @@ export class ChangeDirService {
   enLang = 'en';
   enDir = 'ltr';
 
-  currentLang?: string ='';
-  // changeLang() {
-  //   this.currentLang = localStorage.getItem(langBox) ?? '';
-  //   this.currentLang = this.translate.currentLang;
+  currentLang?: string;
+  changeLang() {
+    this.currentLang = localStorage.getItem(langBox) ?? '';
+    this.currentLang = this.translate.currentLang;
 
-  //   if (this.currentLang == this.arLang) {
-  //     localStorage.setItem(langBox, this.enLang);
-  //     this.translate.use(this.enLang);
-  //     this.document.documentElement.setAttribute('dir', this.enDir);
-  //     this.currentLang = this.enLang;
-  //     window.location.reload()
-  //   } else {
-  //     localStorage.setItem(langBox, this.arLang);
-  //     this.translate.use(this.arLang);
-  //     this.document.documentElement.setAttribute('dir', this.arDir);
-  //     this.currentLang = this.arLang;
-  //     window.location.reload()
-  //   }
-  //   console.log(this.currentLang);
-    
-  // }
+    if (this.currentLang == this.arLang) {
+      localStorage.setItem(langBox, this.enLang);
+      this.translate.use(this.enLang);
+      this.document.documentElement.setAttribute('dir', this.enDir);
+      this.currentLang = this.enLang;
+    } else {
+      localStorage.setItem(langBox, this.arLang);
+      this.translate.use(this.arLang);
+      this.document.documentElement.setAttribute('dir', this.arDir);
+      this.currentLang = this.arLang;
+    }
+    location.reload();
 
-  // setDefultLang() {
-  //   this.currentLang = localStorage.getItem(langBox) ?? '';
-  //   if (this.currentLang == '' || this.currentLang == this.arLang) {
-  //     this.translate.setDefaultLang('ar');
-  //     this.translate.use('ar');
-
-  //     this.currentLang = this.arLang;
-  //   } else {
-  //     this.translate.use(this.enLang);
-  //     this.document.documentElement.setAttribute('dir', this.enDir);
-  //     this.currentLang = this.enLang;
-  //   }
-  // }
-  
-
-  initLang() {
-    localStorage.getItem('currentLang')
-      ? localStorage.getItem('currentLang')
-      : localStorage.setItem('currentLang', 'en');
-    this.currentLang = localStorage.getItem('currentLang') || 'en';
-    this.translate.use(this.currentLang);
   }
 
-  changeLang(lang: string) {
-    const storedLang = localStorage.getItem('currentLang');
-    if (storedLang == lang) {
-      return;
+  setDefultLang() {
+    this.currentLang = localStorage.getItem(langBox) ?? '';
+    if (this.currentLang == '' || this.currentLang == this.arLang) {
+      this.translate.setDefaultLang('ar');
+      this.translate.use('ar');
+
+      this.currentLang = this.arLang;
     } else {
-      this.translate.use(lang);
-      localStorage.setItem('currentLang', lang);
-      location.reload();
+      this.translate.use(this.enLang);
+      this.document.documentElement.setAttribute('dir', this.enDir);
+      this.currentLang = this.enLang;
     }
   }
-  dir() {
-    let dir = localStorage.getItem('currentLang');
-    return dir;
-  }
-
 }

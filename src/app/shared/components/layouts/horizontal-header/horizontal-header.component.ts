@@ -1,13 +1,14 @@
 import { TranslateModule } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatMenuModule } from '@angular/material/menu';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FlexLayoutServerModule } from '@angular/flex-layout/server';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatMenuModule} from '@angular/material/menu';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FlexLayoutServerModule} from '@angular/flex-layout/server';
+
 import { ChangeDirService } from '../../../services/change-dir.service';
 
 @Component({
@@ -27,15 +28,13 @@ import { ChangeDirService } from '../../../services/change-dir.service';
   ],
   providers: [ChangeDirService],
 })
-export class HorizontalHeaderComponent {
-  currentLang: string = 'en';
+export class HorizontalHeaderComponent implements OnInit {
+
   constructor(public changeLangService: ChangeDirService) {}
 
-  ngOnInit() {
-    this.currentLang = localStorage.getItem('lang') || '';
-  }
-  changeLang(lang:string) {
-    // this.currentLang=this.currentLang == 'en'? 'ar' :'en';
-    this.changeLangService.changeLang(lang);
+  ngOnInit() {}
+
+  changeLang() {
+    this.changeLangService.changeLang();
   }
 }

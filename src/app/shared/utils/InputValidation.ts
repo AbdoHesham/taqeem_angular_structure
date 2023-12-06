@@ -94,7 +94,10 @@ export class InputValidation {
   static validEmail = new RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
 
   static complexPassword = new RegExp(
-    '^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*'
+    // '^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*'
+    '^(?=.[A-Za-z])(?=.\d).{8,}$'
+
+
   );
 
   static capitalSmallValidation(c: FormControl) {

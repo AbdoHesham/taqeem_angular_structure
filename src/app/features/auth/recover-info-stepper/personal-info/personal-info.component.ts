@@ -45,8 +45,6 @@ import { Option } from '../../../../shared/Models/option';
     DatePickerComponent,
     TitleFormComponent,
     InputFieldComponent,
-    FlexLayoutModule,
-    FlexLayoutServerModule,
     SelectFieldComponent,
     SharedButtonComponent,
     TextAreaComponent,

@@ -23,7 +23,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export class AppComponent {
   title = 'structure-2';
   ngOnInit(){
-    this.changeLangService.initLang()
+    this.changeLangService.setDefultLang()
   }
 
   constructor(public changeLangService: ChangeDirService) {

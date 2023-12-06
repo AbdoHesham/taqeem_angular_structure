@@ -17,14 +17,14 @@
         [label]="('signup.ID Number' | translate) + '*'"
         [placeholder]="'signup.Enter the ID number' | translate"
         [type]="'text'"
-        [control]="form.get('nationalId')"
+        [controlF]="form.get('nationalId')"
       />
 
       <app-date-picker
         [label]="('signup.Date of birth' | translate) + '*'"
         [placeholder]="'signup.Enter' | translate"
         [type]="'date'"
-        [control]="form.get('DOP')"
+        [controlF]="form.get('DOP')"
       />
       <div class="d-flex">
         <img src="../../../../assets/img/Rectangle 37.svg" alt="" srcset="" />
@@ -33,7 +33,7 @@
         [label]="''"
         [placeholder]="('signup.The code is in the picture' | translate) + '*'"
         [type]="'text'"
-        [control]="form.get('imageCode')"
+        [controlF]="form.get('imageCode')"
       />
       <app-shared-button
         [label]="'signup.Data recovery' | translate"

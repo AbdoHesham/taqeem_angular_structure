@@ -1,16 +1,36 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
+import {MatSelectModule} from '@angular/material/select';
+
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {
-  AbstractControl,
-  FormControl,
   FormsModule,
+  NgControl,
+  FormControl,
   ReactiveFormsModule,
-  ValidatorFn,
+  FormGroupDirective,
+  NgForm,
+  Validators,
+  AbstractControl,
 } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { Option } from '../../../Models/option';
+import {ErrorStateMatcher} from '@angular/material/core';
+import { TranslateModule } from '@ngx-translate/core';
+// import { Option } from '../../../Models/option';
+
+ interface Option {
+  id: number;
+  name: string;
+}
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'select-field',
@@ -18,11 +38,13 @@ import { Option } from '../../../Models/option';
   styleUrls: ['./select-field.component.scss'],
   standalone: true,
   imports: [
+    CommonModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
+    TranslateModule,
   ],
 })
 export class SelectFieldComponent implements OnInit {
@@ -30,42 +52,14 @@ export class SelectFieldComponent implements OnInit {
   @Input() placeholder: string = '';
   @Input() hint: string = '';
   @Input() isDisabled: boolean = false;
+  @Input() options: Option[] | any = [];
+  @Input() controlF: FormControl | AbstractControl<any, any> | any = new FormControl();
   @Output() selectChange: EventEmitter<string> = new EventEmitter<string>();
-  @Input() options: Option[] = [];
+  // @Input() options: Option[] = [];
 
-  @Input() control: FormControl | AbstractControl<any, any> | any = null;
-  @Input() validators: ValidatorFn[] | null = null;
+  matcher = new MyErrorStateMatcher();
+
   constructor() {}
 
-  ngOnInit() {
-    if (this.control instanceof FormControl && this.validators) {
-      this.validators.forEach((validator) => {
-        this.control?.setValidators(validator);
-      });
-    }
-    this.control.patchValue(this.control.value);
-  }
-  @Input() backendError: string = '';
-
-  getErrorMessages(): string[] | null {
-    const errorMessages: string[] = [];
-  
-    if (this.control?.hasError('required')) {
-      errorMessages.push('This field is required');
-    }
-  
-    // Add more error messages based on your validation requirements
-    // For example, checking for other errors:
-    if (this.control?.hasError('pattern')) {
-      errorMessages.push('Invalid pattern');
-    }
-  
-    // Add backend error if it exists
-    if (this.backendError) {
-      errorMessages.push(this.backendError);
-    }
-  
-    return errorMessages.length > 0 ? errorMessages : null;
-  }
-  
+  ngOnInit() {}
 }

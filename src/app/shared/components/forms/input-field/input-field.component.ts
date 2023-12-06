@@ -1,16 +1,29 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {
-  AbstractControl,
-  FormControl,
   FormsModule,
+  NgControl,
+  FormControl,
   ReactiveFormsModule,
+  FormGroupDirective,
+  NgForm,
+  Validators,
+  AbstractControl,
   ValidatorFn,
 } from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
 
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
+import { TranslateModule } from '@ngx-translate/core';
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'input-field',
@@ -18,14 +31,14 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./input-field.component.scss'],
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule,
+    ReactiveFormsModule,
+    TranslateModule,
   ],
 })
+
 export class InputFieldComponent implements OnInit {
   show = false;
 
@@ -34,42 +47,15 @@ export class InputFieldComponent implements OnInit {
   @Input() hint: string = '';
   @Input() type: string = 'text';
   @Input() isDisabled: boolean = false;
-  @Output() inputChange: EventEmitter<string> = new EventEmitter<string>();
-  @Input() control: FormControl | AbstractControl<any, any> | any = null;
+  // @Input() controlF: FormControl | any = new FormControl();
+
+  @Input() controlF: FormControl | AbstractControl<any, any> | any = new FormControl();
   @Input() validators: ValidatorFn[] | null = null;
+  @Output() inputChange: EventEmitter<string> = new EventEmitter<string>();
+
+  matcher = new MyErrorStateMatcher();
+
   constructor() {}
-  
-  ngOnInit() {
-    console.log(this.type);
-    
-    if (this.control instanceof FormControl && this.validators) {
-      this.validators.forEach((validator) => {
-        this.control?.setValidators(validator);
-      });
-    }
-    // this.control.patchValue(this.control.value);
-  }
-  @Input() backendError: string = '';
 
-getErrorMessages(): string[] | null {
-  const errorMessages: string[] = [];
-
-  if (this.control?.hasError('required')) {
-    errorMessages.push('This field is required');
-  }
-
-  // Add more error messages based on your validation requirements
-  // For example, checking for other errors:
-  if (this.control?.hasError('pattern')) {
-    errorMessages.push('Invalid pattern');
-  }
-
-  // Add backend error if it exists
-  if (this.backendError) {
-    errorMessages.push(this.backendError);
-  }
-
-  return errorMessages.length > 0 ? errorMessages : null;
-}
-
+  ngOnInit() {}
 }

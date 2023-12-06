@@ -1,0 +1,84 @@
+<form
+formGroup="infoEvaluation"
+(ngSubmit)="$event.preventDefault(); submitForm()" >
+  <h3 class="fw-bold pb-5">{{ 'infoEvaluation.subTitle' | translate }}</h3>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" >
+    <div fxFlex="49">
+      <input-field
+      [label]="'عنوان طلب التقييم'"
+      [placeholder]="'اكتب العنوان'"
+      [hint]="'استخدم هذا الحقل لإضافة عنوان تعريفي بطلب التقييم (هذا الحقل خاص بك ولا يظهر للمقيم)'"
+      [controlF]="getFormGroup('senderName1')"/>
+    </div>
+    <div fxFlex="49">
+      <select-field
+      [label]="'الغرض من التقييم'"
+      [placeholder]="'إختيار'"
+      [hint]="'تختلف تقارير التقييم حسب الغرض الذي طلبت من أجله'"
+      [options]="options"
+      [controlF]="getFormGroup('senderName2')"/>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-5" >
+    <div fxFlex="49">
+      <input-field
+      [label]="'التفصيل في غرض التقييم'"
+      [placeholder]="'التفصيل في غرض التقييم'"
+      [controlF]="getFormGroup('senderName4')"/>
+    </div>
+    <div fxFlex="49">
+      <input-field
+      [label]="'مدة صلاحية طلب التقييم'"
+      [placeholder]="'10 ايام'"
+      [type]="'number'"
+      [hint]="'يلغى الطلب تلقائيًا بعد انقضاء مدة صلاحيته دون وجود عروض مقبولة'"
+      [controlF]="getFormGroup('senderName5')"/>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-5" >
+    <div fxFlex="49">
+      <radio-button
+      [label]="'نوع نسخة التقرير'"
+      [radios]="radios"
+      (radioChange)="changeRadio()"
+      [controlF]="getFormGroup('senderName7')"/>
+    </div>
+    <div fxFlex="49">
+      <input-field
+      [label]="'تسليم التقرير خلال'"
+      [placeholder]="'10 ايام'"
+      [type]="'number'"
+      [hint]="'عدد أيام العمل لتسليم تقرير التقييم بعد دفع الرسوم المستحقة لمنشأة التقييم'"
+      [controlF]="getFormGroup('senderName6')"/>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-4" *ngIf="radioValue === '2'">
+    <div fxFlex="100">
+      <input-field
+      [label]="'عدد النسخ المطبوعة'"
+      [placeholder]="'1'"
+      [type]="'number'"
+      [controlF]="getFormGroup('senderName8')"/>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="pt-5" >
+    <div fxFlex="100">
+      <text-area
+      [label]="'وصف طلب التقييم'"
+      [rows]="7"
+      [controlF]="getFormGroup('senderName3')"/>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end start" fxLayoutGap="20">
+      <cancel-button
+        [label]="'إلغاء'">
+      </cancel-button>
+      <app-shared-button
+        [label]="'الإستمرار'"
+        [isDisabled]="infoEvaluation.invalid">
+      </app-shared-button>
+  </div>
+</form>

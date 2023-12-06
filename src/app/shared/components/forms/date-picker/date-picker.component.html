@@ -1,7 +1,10 @@
 <mat-label class="text-start">{{label}}</mat-label>
 <mat-form-field appearance="outline" class="d-flex pt-3">
-    <input matInput [matDatepicker]="picker" [disabled]="isDisabled" [formControl]="control" [placeholder]="placeholder" (click)="picker.open()">
+    <input matInput [matDatepicker]="picker" [disabled]="isDisabled" [formControl]="controlF" [placeholder]="placeholder" (click)="picker.open()">
     <mat-hint>{{hint}}</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
+    @if (controlF.hasError('required')) {
+      <mat-error>{{label}} <strong>{{ 'valdation.required' | translate }}</strong></mat-error>
+    }
   </mat-form-field>
