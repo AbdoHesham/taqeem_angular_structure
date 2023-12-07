@@ -132,6 +132,7 @@
     "EnterNationalabbreviatedaddress": "Enter National abbreviated address"
   },
   "popup": {
-    "RegisterSuccess": "successfully registered"
+    "RegisterSuccess": "successfully registered",
+    "cheackPhone":"Verify the phone number"
   }
 }

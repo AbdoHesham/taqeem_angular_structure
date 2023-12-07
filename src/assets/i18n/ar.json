@@ -141,6 +141,7 @@
     "EnterNationalabbreviatedaddress": "أدخل العنوان الوطني المختصر"
   },
   "popup": {
-    "RegisterSuccess": "تم التسجيل بنجاح"
+    "RegisterSuccess": "تم التسجيل بنجاح",
+    "cheackPhone": "تحقق من رقم الهاتف"
   }
 }
